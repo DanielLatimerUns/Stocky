@@ -1,0 +1,69 @@
+﻿<UserControl x:Class="Stocky.Views.VendorManagerView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d"
+              xmlns:Local="clr-namespace:Stocky.ViewModels"
+             xmlns:db="clr-namespace:Debugger;assembly=WPFDebugger"          
+             db:ScreenDebugger.DebugObj="true"
+             >
+    <UserControl.Triggers >
+        <EventTrigger RoutedEvent ="FrameworkElement.Loaded">
+            <BeginStoryboard Storyboard ="{StaticResource OpenAnimation }"/>
+        </EventTrigger>
+    </UserControl.Triggers>
+    <UserControl.DataContext>
+        <Local:VendorManagerViewModel/>
+    </UserControl.DataContext>
+    <Grid>
+        <Grid.RowDefinitions>
+        <RowDefinition Height="50"/>
+           <RowDefinition Height="40"/>
+        <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <StackPanel Orientation="Horizontal" Background="White" >
+            <WrapPanel Height="30" >
+                <Label Content="Vendor ID"/>
+                <TextBox Name="txtID" Width="150" Height="20" Text="{Binding VendorOBJ.VendorID }"/>
+            </WrapPanel>
+            <WrapPanel Height="30" >
+                <Label Content="Name"/>
+                <TextBox Name="txtTitle" Width="150" Height="20" Text="{Binding VendorOBJ.VendorsName}"/>
+            </WrapPanel>
+            <WrapPanel Height="30">  
+            </WrapPanel>
+            <WrapPanel Height="30" Margin="10,13,10,10">
+                <Button Name="btnSeatch" Content="Search" Width="70" Command="{Binding UpdateVendoryList}"/>
+            </WrapPanel>
+        </StackPanel>
+        <StackPanel Background="{DynamicResource ActionPanelBrush}" Orientation="Horizontal" Margin="-4,45,4,5" Grid.RowSpan="2">
+            <ItemsControl ItemsSource="{Binding Buttons}" >
+                <ItemsControl.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <StackPanel Orientation="Horizontal"/>
+                    </ItemsPanelTemplate>
+                </ItemsControl.ItemsPanel>
+                <ItemsControl.ItemTemplate>
+                    <DataTemplate>
+                        <WrapPanel Orientation="Horizontal">
+                            <Button Content="{Binding Content}" Command="{Binding Command}" Style="{DynamicResource ToolBarButtons}" />
+                        </WrapPanel>
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>
+            </ItemsControl>
+        </StackPanel>
+        <DataGrid IsReadOnly="True" RowHeaderWidth="0" Name="gdsales" Grid.Row="2" AutoGenerateColumns="False" ItemsSource="{Binding vendorList ,UpdateSourceTrigger=PropertyChanged}" SelectedItem="{Binding SelectedVendorOBJ}" >
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Name" Binding="{Binding VendorsName }"/>
+                <DataGridTextColumn Header="Description" Binding="{Binding VendorsDescption}"/>
+                <DataGridCheckBoxColumn Header="Online Vendor" Binding="{Binding onlineVendor}"/>
+            </DataGrid.Columns>
+            <DataGrid.ContextMenu>
+                <ContextMenu>
+                    <MenuItem>Details</MenuItem>
+                </ContextMenu>
+            </DataGrid.ContextMenu>
+        </DataGrid>
+    </Grid>
+</UserControl>

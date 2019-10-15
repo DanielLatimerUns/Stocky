@@ -1,0 +1,3 @@
+﻿CREATE LOGIN [StockyLogin]
+    WITH PASSWORD = N'eJ_negcxY_tLbsj=pwjdWjg msFT7_&#$!~<wnbygvejzzo|', SID = 0xD91652D5794AD741A2EF1A7E8436DB7A, DEFAULT_LANGUAGE = [us_english], CHECK_EXPIRATION = ON;
+

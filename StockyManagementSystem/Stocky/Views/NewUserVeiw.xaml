@@ -1,0 +1,106 @@
+﻿<Window x:Class="Stocky.Views.NewUserVeiw"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:Local="clr-namespace:Stocky.ViewModels"
+        Height="758" Width="400"
+        ResizeMode ="NoResize"
+        >
+    <Window.DataContext>
+        <Local:NewUserViewModel/>
+    </Window.DataContext>
+    <Grid>
+        <Grid.Resources>
+            <Style TargetType="TextBox">
+                <Setter Property="Width" Value="150"/>
+                <Setter Property="HorizontalAlignment" Value="Right"/>
+            </Style>
+            <Style TargetType="DatePicker">
+                <Setter Property="Width" Value="150"/>
+                <Setter Property="HorizontalAlignment" Value="Right"/>
+            </Style>
+            <Style TargetType="DockPanel">
+                <Setter Property="Margin" Value="0,20,20,0"/>
+            </Style>
+        </Grid.Resources>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="270"/>
+            <RowDefinition Height="380"/>
+            <RowDefinition Height="30"/>
+        </Grid.RowDefinitions>
+        <StackPanel Orientation="Horizontal"
+                    Style="{DynamicResource WindowHeader}">
+            <TextBlock Text="Add new user" 
+                       Style="{DynamicResource WindowHeaderTB}"
+                       />
+        </StackPanel>
+        <StackPanel Grid.Row="1">
+            <Border Grid.Row="1"
+                Margin="15,10,15,10"
+                BorderThickness="0.60"
+                BorderBrush="Gray">
+                <StackPanel Grid.Row="1" Margin="15,10,15,10">
+                    <TextBlock Text="Account Details" HorizontalAlignment="Center"/>
+                    <DockPanel>
+                        <Label Content="User Name"/>
+                        <TextBox Text="{Binding UsrObj.UserName,UpdateSourceTrigger=PropertyChanged,ValidatesOnDataErrors=False}"/>
+                    </DockPanel>
+                    <DockPanel>
+                        <Label Content="Email Adresse"/>
+                        <TextBox Text="{Binding UsrObj.Email,UpdateSourceTrigger=PropertyChanged,ValidatesOnDataErrors=False}"/>
+                    </DockPanel>
+                    <DockPanel>
+                        <Label Content="Password"/>
+                        <TextBox Text="{Binding UsrObj.Password,UpdateSourceTrigger=PropertyChanged,ValidatesOnDataErrors=False}"/>
+                    </DockPanel>
+                    <DockPanel>
+                        <Label Content="Confirm Password"/>
+                        <TextBox Text="{Binding UsrObj.ConfirmPassword,UpdateSourceTrigger=PropertyChanged,ValidatesOnDataErrors=False}"/>
+                    </DockPanel>
+                    <DockPanel>
+                        <Label Content="Is admin"/>
+                        <CheckBox IsChecked="{Binding UsrObj.IsAdmin,UpdateSourceTrigger=PropertyChanged,ValidatesOnDataErrors=False}"
+                                  HorizontalAlignment="Right"/>
+                    </DockPanel>
+                </StackPanel>
+            </Border>
+        </StackPanel>
+        <StackPanel Grid.Row="2">
+            <Border Grid.Row="2"
+                Margin="15,10,15,10"
+                BorderThickness="0.60"
+                BorderBrush="Gray">
+                <StackPanel Grid.Row="2" Margin="15,10,15,10">
+                    <TextBlock Text="User Details" HorizontalAlignment="Center"/>
+                    <DockPanel>
+                        <Label Content="FistName"/>
+                        <TextBox Text="{Binding UsrObj.FistName,UpdateSourceTrigger=PropertyChanged,ValidatesOnDataErrors=False}"/>
+                    </DockPanel>
+                    <DockPanel>
+                        <Label Content="LastName"/>
+                        <TextBox Text="{Binding UsrObj.LastName,UpdateSourceTrigger=PropertyChanged,ValidatesOnDataErrors=False}"/>
+                    </DockPanel>
+                    <DockPanel>
+                        <Label Content="Initials"/>
+                        <TextBox Text="{Binding UsrObj.Initials,UpdateSourceTrigger=PropertyChanged,ValidatesOnDataErrors=False}"/>
+                    </DockPanel>
+                    <DockPanel>
+                        <Label Content="Date of Birth"/>
+                        <DatePicker SelectedDate="{Binding UsrObj.DOB,UpdateSourceTrigger=PropertyChanged,ValidatesOnDataErrors=False}"/>
+                    </DockPanel>
+                    <DockPanel>
+                        <Label Content="WorkPhone"/>
+                        <TextBox Text="{Binding UsrObj.WorkPhone,UpdateSourceTrigger=PropertyChanged,ValidatesOnDataErrors=False}"/>
+                    </DockPanel>
+                    <DockPanel>
+                        <Label Content="HomePhone"/>
+                        <TextBox Text="{Binding UsrObj.HomePhone}"/>
+                    </DockPanel>
+                </StackPanel>
+            </Border>
+        </StackPanel>
+        <StackPanel  Grid.Row="3">
+            <Button Height="22" Content="Submit" Command="{Binding AddUser}"/>
+        </StackPanel>
+    </Grid>
+</Window>

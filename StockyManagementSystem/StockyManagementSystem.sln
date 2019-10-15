@@ -1,0 +1,156 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25123.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Stocky", "Stocky\Stocky.csproj", "{710EF126-F7DC-4A01-A03C-5D10A4D3C2C9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MVVM_Framwork", "MVVM_Framwork\MVVM_Framwork.csproj", "{076F76AF-F0EC-4979-8B79-B663FF021CB6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EbayAPI", "EbayAPI\EbayAPI.csproj", "{A2C663DC-D815-4126-B40C-683B011ECF94}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WPFDebugger", "..\WPFDebugger\WPFDebugger.csproj", "{1BAA04D6-F50C-46DC-9AE4-69D2A1BF2D69}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Stocky.SSRSViewer", "WPF_SSRSReportViewer\Stocky.SSRSViewer.csproj", "{5F72263C-643F-4826-89D1-BA40BCF28373}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Stocky.Business", "Stocky.Data\Stocky.Business.csproj", "{02A08DA7-2606-4B2D-87F9-955F40DE361C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Stocky.Utilitys", "Stocky.Utilitys\Stocky.Utilitys.csproj", "{D62ADF33-A4C5-442E-93C2-A777D0B7EE01}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Stocky.DataAcesse", "Stocky.DataAcesse\Stocky.DataAcesse.csproj", "{F1575CC3-78AD-4610-97F8-A2A77A55E660}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Stocky.Service", "Stocky.Service\Stocky.Service.csproj", "{51E451C3-AAE9-455C-AF81-4DF1FA6A1744}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Stocky.Authentication", "Stocky.Authentication\Stocky.Authentication.csproj", "{34EF77A3-0517-4500-AE62-970A539433C3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Stocky.Service.Utility", "Stocky.Service.Utility\Stocky.Service.Utility.csproj", "{F9A59086-6165-4990-8AA1-204A12B84EEF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Stocky.Service.Reporting", "Stocky.Service.Reporting\Stocky.Service.Reporting.csproj", "{3E5B8D82-A68F-47A0-ACBC-BF301FD12E03}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WpfAnimatedGif", "WpfAnimatedGif\WpfAnimatedGif.csproj", "{D129789C-3096-4D0B-8DD7-FE24A4DF4B21}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MVCTest", "MVCTest\MVCTest.csproj", "{A878B2E7-4AE3-4AA0-A220-C538ABDB4257}"
+EndProject
+Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "Stocky.Database", "Stocky.Database\Stocky.Database.sqlproj", "{ECA72164-7FF0-466D-AC66-4D83593AD77A}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{710EF126-F7DC-4A01-A03C-5D10A4D3C2C9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{710EF126-F7DC-4A01-A03C-5D10A4D3C2C9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{710EF126-F7DC-4A01-A03C-5D10A4D3C2C9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{710EF126-F7DC-4A01-A03C-5D10A4D3C2C9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{076F76AF-F0EC-4979-8B79-B663FF021CB6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{076F76AF-F0EC-4979-8B79-B663FF021CB6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{076F76AF-F0EC-4979-8B79-B663FF021CB6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{076F76AF-F0EC-4979-8B79-B663FF021CB6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A2C663DC-D815-4126-B40C-683B011ECF94}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A2C663DC-D815-4126-B40C-683B011ECF94}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A2C663DC-D815-4126-B40C-683B011ECF94}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A2C663DC-D815-4126-B40C-683B011ECF94}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1BAA04D6-F50C-46DC-9AE4-69D2A1BF2D69}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1BAA04D6-F50C-46DC-9AE4-69D2A1BF2D69}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1BAA04D6-F50C-46DC-9AE4-69D2A1BF2D69}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1BAA04D6-F50C-46DC-9AE4-69D2A1BF2D69}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5F72263C-643F-4826-89D1-BA40BCF28373}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5F72263C-643F-4826-89D1-BA40BCF28373}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5F72263C-643F-4826-89D1-BA40BCF28373}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5F72263C-643F-4826-89D1-BA40BCF28373}.Release|Any CPU.Build.0 = Release|Any CPU
+		{02A08DA7-2606-4B2D-87F9-955F40DE361C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{02A08DA7-2606-4B2D-87F9-955F40DE361C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{02A08DA7-2606-4B2D-87F9-955F40DE361C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{02A08DA7-2606-4B2D-87F9-955F40DE361C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D62ADF33-A4C5-442E-93C2-A777D0B7EE01}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D62ADF33-A4C5-442E-93C2-A777D0B7EE01}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D62ADF33-A4C5-442E-93C2-A777D0B7EE01}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D62ADF33-A4C5-442E-93C2-A777D0B7EE01}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F1575CC3-78AD-4610-97F8-A2A77A55E660}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F1575CC3-78AD-4610-97F8-A2A77A55E660}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F1575CC3-78AD-4610-97F8-A2A77A55E660}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F1575CC3-78AD-4610-97F8-A2A77A55E660}.Release|Any CPU.Build.0 = Release|Any CPU
+		{51E451C3-AAE9-455C-AF81-4DF1FA6A1744}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{51E451C3-AAE9-455C-AF81-4DF1FA6A1744}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{51E451C3-AAE9-455C-AF81-4DF1FA6A1744}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{51E451C3-AAE9-455C-AF81-4DF1FA6A1744}.Release|Any CPU.Build.0 = Release|Any CPU
+		{34EF77A3-0517-4500-AE62-970A539433C3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{34EF77A3-0517-4500-AE62-970A539433C3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{34EF77A3-0517-4500-AE62-970A539433C3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{34EF77A3-0517-4500-AE62-970A539433C3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F9A59086-6165-4990-8AA1-204A12B84EEF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F9A59086-6165-4990-8AA1-204A12B84EEF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F9A59086-6165-4990-8AA1-204A12B84EEF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F9A59086-6165-4990-8AA1-204A12B84EEF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3E5B8D82-A68F-47A0-ACBC-BF301FD12E03}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3E5B8D82-A68F-47A0-ACBC-BF301FD12E03}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3E5B8D82-A68F-47A0-ACBC-BF301FD12E03}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3E5B8D82-A68F-47A0-ACBC-BF301FD12E03}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D129789C-3096-4D0B-8DD7-FE24A4DF4B21}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D129789C-3096-4D0B-8DD7-FE24A4DF4B21}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D129789C-3096-4D0B-8DD7-FE24A4DF4B21}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D129789C-3096-4D0B-8DD7-FE24A4DF4B21}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A878B2E7-4AE3-4AA0-A220-C538ABDB4257}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A878B2E7-4AE3-4AA0-A220-C538ABDB4257}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A878B2E7-4AE3-4AA0-A220-C538ABDB4257}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A878B2E7-4AE3-4AA0-A220-C538ABDB4257}.Release|Any CPU.Build.0 = Release|Any CPU
+		{ECA72164-7FF0-466D-AC66-4D83593AD77A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ECA72164-7FF0-466D-AC66-4D83593AD77A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ECA72164-7FF0-466D-AC66-4D83593AD77A}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{ECA72164-7FF0-466D-AC66-4D83593AD77A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ECA72164-7FF0-466D-AC66-4D83593AD77A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{ECA72164-7FF0-466D-AC66-4D83593AD77A}.Release|Any CPU.Deploy.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 15
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = http://192.168.2.101:8080/tfs/defaultcollection
+		SccLocalPath0 = .
+		SccProjectUniqueName1 = WpfAnimatedGif\\WpfAnimatedGif.csproj
+		SccProjectName1 = WpfAnimatedGif
+		SccLocalPath1 = WpfAnimatedGif
+		SccProjectUniqueName2 = ..\\WPFDebugger\\WPFDebugger.csproj
+		SccProjectName2 = ../WPFDebugger
+		SccLocalPath2 = ..\\WPFDebugger
+		SccProjectUniqueName3 = MVVM_Framwork\\MVVM_Framwork.csproj
+		SccProjectName3 = MVVM_Framwork
+		SccLocalPath3 = MVVM_Framwork
+		SccProjectUniqueName4 = Stocky.Data\\Stocky.Business.csproj
+		SccProjectName4 = Stocky.Data
+		SccLocalPath4 = Stocky.Data
+		SccProjectUniqueName5 = Stocky.Utilitys\\Stocky.Utilitys.csproj
+		SccProjectName5 = Stocky.Utilitys
+		SccLocalPath5 = Stocky.Utilitys
+		SccProjectUniqueName6 = WPF_SSRSReportViewer\\Stocky.SSRSViewer.csproj
+		SccProjectName6 = WPF_SSRSReportViewer
+		SccLocalPath6 = WPF_SSRSReportViewer
+		SccProjectUniqueName7 = Stocky\\Stocky.csproj
+		SccProjectName7 = Stocky
+		SccLocalPath7 = Stocky
+		SccProjectUniqueName8 = Stocky.DataAcesse\\Stocky.DataAcesse.csproj
+		SccProjectName8 = Stocky.DataAcesse
+		SccLocalPath8 = Stocky.DataAcesse
+		SccProjectUniqueName9 = Stocky.Authentication\\Stocky.Authentication.csproj
+		SccProjectName9 = Stocky.Authentication
+		SccLocalPath9 = Stocky.Authentication
+		SccProjectUniqueName10 = Stocky.Service.Reporting\\Stocky.Service.Reporting.csproj
+		SccProjectName10 = Stocky.Service.Reporting
+		SccLocalPath10 = Stocky.Service.Reporting
+		SccProjectUniqueName11 = Stocky.Service.Utility\\Stocky.Service.Utility.csproj
+		SccProjectName11 = Stocky.Service.Utility
+		SccLocalPath11 = Stocky.Service.Utility
+		SccProjectUniqueName12 = Stocky.Service\\Stocky.Service.csproj
+		SccProjectName12 = Stocky.Service
+		SccLocalPath12 = Stocky.Service
+		SccProjectUniqueName13 = MVCTest\\MVCTest.csproj
+		SccProjectName13 = MVCTest
+		SccLocalPath13 = MVCTest
+		SccProjectUniqueName14 = Stocky.Database\\Stocky.Database.sqlproj
+		SccProjectName14 = Stocky.Database
+		SccLocalPath14 = Stocky.Database
+	EndGlobalSection
+EndGlobal

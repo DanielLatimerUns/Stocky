@@ -1,0 +1,29 @@
+﻿@model MVCTest.Models.StockManagerModel
+
+@{
+    ViewBag.Title = "StockList";
+}
+
+<h2>StockList</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<p>
+    Stockid: @Model.StockList.FirstOrDefault().Stockid
+</p>
+<table class="table">
+    <tr>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model.StockList)
+{
+    <tr>
+        <td>
+            StockID : @item.Stockid Description: @item.Description
+        </td>
+    </tr>
+}
+
+</table>

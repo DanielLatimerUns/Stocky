@@ -1,0 +1,66 @@
+﻿<UserControl x:Class="ReportViewer.Views.ReportViewerView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"         
+             xmlns:L="clr-namespace:ReportViewer.ViewModels"
+             xmlns:ST="clr-namespace:ReportViewer.WebBrowser"
+             xmlns:data="clr-namespace:Stocky.Data;assembly=Stocky.Data"
+             mc:Ignorable="d" 
+             >
+    <UserControl.DataContext>
+        <L:ReportsViewerViewModel/>
+    </UserControl.DataContext>
+    <DockPanel>
+        <Expander
+                  DockPanel.Dock="{Binding Navi.Dock}"
+                  Background="#FF3F3F46"
+                  BorderBrush="#FFFFFFFF"
+                  Header="{Binding Header}"
+                  IsExpanded="{Binding IsExpanded}">
+            <TreeView ItemsSource="{Binding ReportList}" 
+                      Name="ReportTreeView"
+                      Background="White"
+                      SelectedItemChanged="ReportTreeView_SelectedItemChanged"
+                      BorderBrush="#EBF3FF">
+                <TreeView.ContextMenu>
+                    <ContextMenu>
+                        <MenuItem Header="Dock">
+                            <MenuItem Header="Dock Right" Command="{Binding Navi.SetDock}" CommandParameter="Right"/>
+                            <MenuItem Header="Dock Left" Command="{Binding Navi.SetDock}" CommandParameter="Left"/>
+                            <MenuItem Header="Dock Top" Command="{Binding Navi.SetDock}" CommandParameter="Top"/>
+                            <MenuItem Header="Dock Bottom" Command="{Binding Navi.SetDock}" CommandParameter="Bottom"/>
+                        </MenuItem>
+                    </ContextMenu>
+                </TreeView.ContextMenu>
+                <TreeView.Resources>
+                    <HierarchicalDataTemplate DataType="{x:Type data:skReport}"
+                                              ItemsSource="{Binding Reports}">
+                        <StackPanel Orientation="Horizontal" Margin="0,10,0,0">
+                            <Image Source="/Stocky.SSRSViewer;component/Resources/ReportFolder.gif"
+                                   Height="20" Width="20"/>
+                            <TextBlock Text="-" Margin="5,0,0,0" VerticalAlignment="Center"/>
+                            <TextBlock Text="{Binding FolderName}"
+                                       VerticalAlignment="Center"
+                                       Margin="5,0,10,0"/>
+                        </StackPanel>
+                    </HierarchicalDataTemplate>
+                    <DataTemplate DataType="{x:Type data:ReportLink}">
+                        <StackPanel Orientation="Horizontal" Margin="0,10,0,0">
+                            <Image Source="/Stocky.SSRSViewer;component/Resources/ReportGif.gif"
+                                   Height="20" Width="20"/>
+                            <TextBlock Text="-" Margin="5,0,0,0" VerticalAlignment="Center"/>
+                            <TextBlock Text="{Binding DisplayName}"
+                                       VerticalAlignment="Center"
+                                        Margin="5,0,10,0"/>
+                        </StackPanel>
+                    </DataTemplate>
+                </TreeView.Resources>
+            </TreeView>
+        </Expander>
+        <WebBrowser Grid.RowSpan="2"
+                    Grid.Column="1" 
+                    ST:WebBrowserNavigation.LinkSource="{Binding Navi.BrowserURI}"
+                    />
+    </DockPanel>
+</UserControl>

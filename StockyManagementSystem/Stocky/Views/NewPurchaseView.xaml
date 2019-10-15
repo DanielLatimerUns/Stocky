@@ -1,0 +1,121 @@
+﻿<UserControl x:Class="Stocky.Views.NewPurchaseView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:CON="clr-namespace:Stocky.UI.Controls"    
+        xmlns:Local="clr-namespace:Stocky.ViewModels">
+    <UserControl.DataContext>
+        <Local:NewPurchaseViewModel/>
+    </UserControl.DataContext>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="500"/>
+        </Grid.RowDefinitions>
+        <ToolBar Background="AliceBlue"
+                 >
+            <ToolBar.Resources>
+                <Style TargetType="Button">
+                    <Setter Property="Margin" Value="20,0,2,0"/>
+                </Style>
+            </ToolBar.Resources>
+            <Button Content="Save" Command="{Binding SubmitPurchase}"/>
+            <Button Content="Close" Command="{Binding UiCommands.CloseCurrentTab}"/>
+            <Separator Margin="20,0,20,0"/>
+        </ToolBar>
+        <StackPanel Background="White"
+                    Grid.Row="1" Grid.RowSpan="2">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="2*"/>
+                    <ColumnDefinition Width="13*"/>
+                </Grid.ColumnDefinitions>
+                <StackPanel Margin="10,10,0,0" Grid.ColumnSpan="2"
+                            >
+                    <StackPanel.Resources>
+                        <Style TargetType="TextBox">
+                            <Setter Property="Margin"
+                                    Value="60,0,150,0"/>
+                            <Setter Property="VerticalContentAlignment"
+                                    Value="Center"/>
+                        </Style>
+                        <Style TargetType="DockPanel">
+                            <Setter Property="Margin" Value="0,20,0,0"/>
+
+                        </Style>
+                        <Style TargetType="Label">
+                            <Setter Property="Width" Value="100"/>
+                            <Setter Property="FontSize" Value="13"/>
+                        </Style>
+                    </StackPanel.Resources>
+                    <DockPanel>
+                        <DockPanel.Resources>
+                            <Style TargetType="TextBox">
+                                <Setter Property="VerticalContentAlignment"
+                                    Value="Center"/>
+                            </Style>
+                        </DockPanel.Resources>
+                        <Label Content="Title" />
+                        <TextBox Text="{Binding PurchaseDetails.Title,UpdateSourceTrigger=PropertyChanged,ValidatesOnDataErrors=False}"  Width="150" Margin="60,0,0,0" HorizontalAlignment="Left"/>
+                    </DockPanel>
+                    <DockPanel>
+                        <Label Content="Description"/>
+                        <TextBox TextWrapping="Wrap"
+                                 Text="{Binding PurchaseDetails.Description,UpdateSourceTrigger=PropertyChanged,ValidatesOnDataErrors=False}"
+                                 AcceptsReturn="True"
+                                 Height="100"
+
+                                 />
+                    </DockPanel>
+                    <DockPanel>
+                        <Label Content="Vendor"/>
+                        <ComboBox Width="240"
+                                  Margin="60,0,0,0"
+                                  HorizontalAlignment="Left"
+                                  ItemsSource="{Binding VendorList}"
+                                  SelectedItem="{Binding PurchaseDetails.VendorObject}"
+                                  DisplayMemberPath="VendorsName"
+                                    />
+                    </DockPanel>
+                    <DockPanel>
+                        <Label Content="Purchased"/>
+                        <DatePicker Width="240"
+                                  HorizontalAlignment="Left"
+                                    Margin="60,0,0,0"
+                                    SelectedDate="{Binding PurchaseDetails.PurchaseDate}"/>
+                    </DockPanel>
+                    <DockPanel>
+                        <Label Content="IsExpense"/>
+                        <CheckBox Width="240"
+                                  HorizontalAlignment="Left"
+                                  Margin="60,0,0,0"
+                                  IsChecked="{Binding PurchaseDetails.IsExpense}"/>
+                    </DockPanel>
+                    <DockPanel>
+                        <Label Content="Purchase Value"/>
+                        <CON:skNumericTextBox Width="240"
+                                 HorizontalAlignment="Left"
+                                 Margin="60,0,0,0"
+                                 Text="{Binding PurchaseDetails.Amount,UpdateSourceTrigger=LostFocus,ValidatesOnDataErrors=False,StringFormat=c}"/>
+                    </DockPanel>
+                    <DockPanel>
+                        <Label Content="Postage"/>
+                        <CON:skNumericTextBox Width="240"
+                                  HorizontalAlignment="Left"
+                                  Margin="60,0,0,0"
+                                  Text="{Binding PurchaseDetails.Postage,UpdateSourceTrigger=LostFocus,ValidatesOnDataErrors=False}"
+                                   />
+                    </DockPanel>
+                    <DockPanel>
+                        <Label Content="InvoiceID"/>
+                        <TextBox Width="240"
+                                  HorizontalAlignment="Left"
+                                    Margin="60,0,0,0"
+                                 Text="{Binding PurchaseDetails.Invoice}"/>
+                    </DockPanel>
+                </StackPanel>
+            </Grid>
+        </StackPanel>
+    </Grid>
+
+</UserControl>

@@ -1,0 +1,13 @@
+C:\Stocky\StockyManagementSystem\Stocky.Authentication\bin\Debug\Stocky.Authentication.dll
+C:\Stocky\StockyManagementSystem\Stocky.Authentication\bin\Debug\Stocky.Authentication.pdb
+C:\Stocky\StockyManagementSystem\Stocky.Authentication\bin\Debug\Stocky.DataAcesse.dll
+C:\Stocky\StockyManagementSystem\Stocky.Authentication\bin\Debug\Stocky.Data.dll
+C:\Stocky\StockyManagementSystem\Stocky.Authentication\bin\Debug\Stocky.Utilitys.dll
+C:\Stocky\StockyManagementSystem\Stocky.Authentication\bin\Debug\MVVM_Framwork.dll
+C:\Stocky\StockyManagementSystem\Stocky.Authentication\bin\Debug\Stocky.DataAcesse.pdb
+C:\Stocky\StockyManagementSystem\Stocky.Authentication\bin\Debug\Stocky.Data.pdb
+C:\Stocky\StockyManagementSystem\Stocky.Authentication\bin\Debug\Stocky.Utilitys.pdb
+C:\Stocky\StockyManagementSystem\Stocky.Authentication\bin\Debug\MVVM_Framwork.pdb
+C:\Stocky\StockyManagementSystem\Stocky.Authentication\obj\Debug\Stocky.Authentication.csprojResolveAssemblyReference.cache
+C:\Stocky\StockyManagementSystem\Stocky.Authentication\obj\Debug\Stocky.Authentication.dll
+C:\Stocky\StockyManagementSystem\Stocky.Authentication\obj\Debug\Stocky.Authentication.pdb

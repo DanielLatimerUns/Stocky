@@ -1,0 +1,12 @@
+﻿<Window x:Class="Stocky.DEV"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        
+        Title="DEV" Height="300" Width="300"
+        >
+    <StackPanel>
+        <TextBox Height="63"/>
+        <Button Name="B1" Click="B1_Click">Update</Button>
+        <TextBox Name="txtstockid" Height="26"></TextBox>
+    </StackPanel>
+</Window>

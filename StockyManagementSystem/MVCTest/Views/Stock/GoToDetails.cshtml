@@ -1,0 +1,91 @@
+﻿@model Stocky.Data.skStock
+
+@{
+    ViewBag.Title = "GoToDetails";
+}
+
+<h2>GoToDetails</h2>
+
+<div>
+    <h4>@Model.Name</h4>
+    <hr />
+    <dl class="dl-horizontal">
+       
+        <dt>
+            @Html.DisplayNameFor(model => model.Stockid)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Stockid)
+        </dd>
+              
+        <dt>
+            @Html.DisplayNameFor(model => model.Description)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Description)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.purchaseddate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.purchaseddate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.purchasedvalue)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.purchasedvalue)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SaleValue)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SaleValue)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Sold)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Sold)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Created)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Created)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Updated)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Updated)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SearchString)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SearchString)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

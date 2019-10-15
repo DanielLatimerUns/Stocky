@@ -1,0 +1,19 @@
+﻿<UserControl x:Class="TestDesigns.CloseableTabHeader"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:TestDesigns"
+             mc:Ignorable="d" 
+      d:DesignHeight="23" d:DesignWidth="81" Margin="0" Background="{x:Null}">
+    <Grid Background="{x:Null}">
+        <Label Content="TabItem"  Height="25" HorizontalAlignment="Left" 
+          Margin="4,1,0,0" Name="label_TabTitle" VerticalAlignment="Top" 
+          FontFamily="Courier" FontSize="12" Background="{x:Null}" Foreground="White"/>
+          <Button Content="X"  Height="19" HorizontalAlignment="Right" Margin="0,0,4,0" 
+          Name="button_close" VerticalAlignment="Top" Width="20"  
+          Background="{x:Null}" Foreground="White"
+          FontStretch="Normal" BorderThickness="0"
+          FontSize="12" ToolTip="Close"/>
+    </Grid>
+</UserControl>

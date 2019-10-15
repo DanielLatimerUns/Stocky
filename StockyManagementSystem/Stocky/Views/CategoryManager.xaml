@@ -1,0 +1,95 @@
+﻿<UserControl x:Class="Stocky.Views.CategoryManager"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:DE="clr-namespace:Debugger;assembly=WPFDebugger"
+             DE:ScreenDebugger.DebugObj="True"
+             mc:Ignorable="d" 
+             xmlns:I="http://schemas.microsoft.com/expression/2010/interactivity"
+             xmlns:Gif="http://wpfanimatedgif.codeplex.com"
+             xmlns:local="clr-namespace:Stocky.ViewModels"  >
+    <UserControl.Triggers >
+    <EventTrigger RoutedEvent ="FrameworkElement.Loaded">
+            <BeginStoryboard Storyboard ="{StaticResource OpenAnimation }"/>
+        </EventTrigger>
+    </UserControl.Triggers>
+    <I:Interaction.Triggers>
+        <I:EventTrigger EventName="Loaded">
+            <I:InvokeCommandAction Command="{Binding GetRecordsCommand}"/>
+        </I:EventTrigger>
+    </I:Interaction.Triggers>
+    <UserControl.DataContext>
+        <local:CategoryManagerViewModel/>
+    </UserControl.DataContext>    
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <StackPanel Orientation="Horizontal" Background="White" >
+            <WrapPanel Height="30">
+                <Label Content="Category ID"/>
+                <TextBox x:Name="txtCategoryID" Width="80" Height="20" Text="{Binding SearchFileter.SearchFilter.ObjectID}"/>
+            </WrapPanel>           
+            <WrapPanel Height="30" >
+                <Label Content="Name"/>
+                <TextBox Name="txtName" Width="150" Height="20" Text="{Binding SearchFileter.SearchFilter.ObjectName}" />
+            </WrapPanel>
+            <WrapPanel Height="30" >
+                <Label Content="Description"/>
+                <TextBox Name="txtdescription" Width="150" Height="20" Text="{Binding SearchFileter.SearchFilter.ObjectDescription}" />
+            </WrapPanel>
+            <WrapPanel Height="30" >
+                <Label Content="Quick Search"/>
+                <TextBox Name="txtqsearch"  Width="150" Height="20">
+                    <I:Interaction.Triggers>
+                        <I:EventTrigger EventName="KeyUp">
+                            <I:InvokeCommandAction Command="{Binding QSearch.SearchCMD}" CommandParameter="{Binding Path=Text,ElementName=txtqsearch}"/>
+                        </I:EventTrigger>
+                    </I:Interaction.Triggers>
+                </TextBox>
+            </WrapPanel>
+            <WrapPanel Height="30" Margin="10,13,10,10">
+                <Button Name="btnSeatch" Content="Search" Width="70" Command="{Binding  GetRecordsCommand}"/>
+            </WrapPanel>
+        </StackPanel>
+        <StackPanel Grid.RowSpan="2" Background="{DynamicResource ActionPanelBrush}" Orientation="Horizontal" Margin="-4,45,4,5" >
+            <ItemsControl ItemsSource="{Binding actionbar.ButtonList}" >
+                <ItemsControl.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <StackPanel Orientation="Horizontal"/>
+                    </ItemsPanelTemplate>
+                </ItemsControl.ItemsPanel>
+                <ItemsControl.ItemTemplate>
+                    <DataTemplate>
+                        <WrapPanel Orientation="Horizontal">
+                            <Button Content="{Binding Content}" Command="{Binding Command}" CommandParameter="{Binding Paramater}" Style="{DynamicResource ToolBarButtons}" />
+                        </WrapPanel>
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>
+            </ItemsControl>
+        </StackPanel>
+        <Image Gif:ImageBehavior.AnimatedSource="/Resources/images/Loading.gif"
+               Grid.Row="2" Panel.ZIndex="9999"
+               Visibility="{Binding Busy}"
+                Height="100" Width="100"/>
+        <DataGrid IsReadOnly="True" Name="gdView" AutoGenerateColumns="False" RowHeaderWidth="0" Grid.Row="2" ItemsSource="{Binding QSearch.DisplayList}" SelectedItem="{Binding SelectedCategoryOBJ}" >
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="ID" Binding="{Binding StockTypeID }"/>
+                <DataGridTextColumn Header="Name" Binding="{Binding Name }"/>
+            </DataGrid.Columns>
+            <DataGrid.RowDetailsTemplate>
+                <DataTemplate>
+                    <TextBlock Text="{Binding Description}" Margin="10" />
+                </DataTemplate>
+            </DataGrid.RowDetailsTemplate>
+            <DataGrid.ContextMenu>
+                <ContextMenu>
+                    <MenuItem >Details</MenuItem>
+                </ContextMenu>
+            </DataGrid.ContextMenu>
+        </DataGrid>
+    </Grid>
+</UserControl>

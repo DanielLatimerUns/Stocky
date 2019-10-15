@@ -1,0 +1,15 @@
+C:\Stocky\StockyManagementSystem\Stocky.Database\bin\Debug\Stocky.Database.dacpac
+C:\Stocky\StockyManagementSystem\Stocky.Database\bin\Debug\Stocky.Database.dll
+C:\Stocky\StockyManagementSystem\Stocky.Database\bin\Debug\Stocky.Database.pdb
+C:\Stocky\StockyManagementSystem\Stocky.Database\obj\Debug\Stocky.Database.dll
+C:\Stocky\StockyManagementSystem\Stocky.Database\obj\Debug\Stocky.Database.pdb
+D:\Stocky\StockyManagementSystem\Stocky.Database\bin\Debug\Stocky.Database.dacpac
+D:\Stocky\StockyManagementSystem\Stocky.Database\bin\Debug\Stocky.Database.dll
+D:\Stocky\StockyManagementSystem\Stocky.Database\bin\Debug\Stocky.Database.pdb
+D:\Stocky\StockyManagementSystem\Stocky.Database\obj\Debug\Stocky.Database.sqlprojAssemblyReference.cache
+D:\Stocky\StockyManagementSystem\Stocky.Database\obj\Debug\Model.xml
+D:\Stocky\StockyManagementSystem\Stocky.Database\obj\Debug\refactor.xml
+D:\Stocky\StockyManagementSystem\Stocky.Database\obj\Debug\postdeploy.sql
+D:\Stocky\StockyManagementSystem\Stocky.Database\obj\Debug\predeploy.sql
+D:\Stocky\StockyManagementSystem\Stocky.Database\obj\Debug\Stocky.Database.dll
+D:\Stocky\StockyManagementSystem\Stocky.Database\obj\Debug\Stocky.Database.pdb

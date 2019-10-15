@@ -1,0 +1,50 @@
+﻿<Window x:Class="Stocky.Views.QuestionBoxView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Stocky.Views"
+        mc:Ignorable="d"
+        xmlns:VM="clr-namespace:Stocky.UI.Dialogs"
+        Title="{Binding Title}" Height="300" Width="400"
+        WindowStartupLocation="CenterOwner"
+        ResizeMode="NoResize"
+        WindowStyle="None"
+        BorderThickness="1"
+        BorderBrush="LightBlue">
+    <Window.DataContext>
+        <VM:QeustionBox/>
+    </Window.DataContext>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="40"/>
+        </Grid.RowDefinitions>
+        <StackPanel HorizontalAlignment="Center">
+            <TextBox Text="{Binding Question}" 
+                       HorizontalAlignment="Center"
+                       TextWrapping="Wrap" 
+                       Width="350"
+                       Height="100"
+                       VerticalContentAlignment="Center"
+                       HorizontalContentAlignment="Center"
+                       BorderThickness="0"
+                       FontSize="13"
+                       />
+            <TextBox Text="{Binding Answer ,UpdateSourceTrigger=LostFocus}"
+                     TextWrapping="Wrap" 
+                     Height="100"
+                     Width="350"
+                     VerticalContentAlignment="Center"
+                     HorizontalContentAlignment="Center"
+                     Margin="0,0,0,0"/>
+        </StackPanel>
+        <WrapPanel Grid.Row="1" HorizontalAlignment="Center">
+            <Button Width="200"
+                    Height="30"
+                    Margin="0,-10,0,0"
+                    Content="Submit" Click="Button_Click"/>
+           
+        </WrapPanel>
+    </Grid>
+</Window>

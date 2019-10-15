@@ -1,0 +1,11 @@
+C:\Stocky\StockyManagementSystem\MVVM_Framwork\bin\Debug\MVVM_Framwork.dll
+C:\Stocky\StockyManagementSystem\MVVM_Framwork\bin\Debug\MVVM_Framwork.pdb
+C:\Stocky\StockyManagementSystem\MVVM_Framwork\obj\Debug\MVVM_Framwork.csprojResolveAssemblyReference.cache
+C:\Stocky\StockyManagementSystem\MVVM_Framwork\obj\Debug\MVVM_Framwork.dll
+C:\Stocky\StockyManagementSystem\MVVM_Framwork\obj\Debug\MVVM_Framwork.pdb
+D:\Stocky\StockyManagementSystem\MVVM_Framwork\bin\Debug\MVVM_Framwork.dll
+D:\Stocky\StockyManagementSystem\MVVM_Framwork\bin\Debug\MVVM_Framwork.pdb
+D:\Stocky\StockyManagementSystem\MVVM_Framwork\obj\Debug\MVVM_Framwork.csprojAssemblyReference.cache
+D:\Stocky\StockyManagementSystem\MVVM_Framwork\obj\Debug\MVVM_Framwork.csproj.CoreCompileInputs.cache
+D:\Stocky\StockyManagementSystem\MVVM_Framwork\obj\Debug\MVVM_Framwork.dll
+D:\Stocky\StockyManagementSystem\MVVM_Framwork\obj\Debug\MVVM_Framwork.pdb

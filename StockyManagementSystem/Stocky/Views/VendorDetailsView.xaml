@@ -1,0 +1,95 @@
+﻿<UserControl x:Class="Stocky.Views.VendorDetailsView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Stocky.Views"
+             xmlns:VM="clr-namespace:Stocky.ViewModels"
+             xmlns:Con="clr-namespace:Stocky.UI.Converters"
+             xmlns:NT="clr-namespace:Stocky.UI.Controls"
+             mc:Ignorable="d" 
+             Background="White">
+    <UserControl.Resources>
+        <Con:BoolToColour x:Key="ValidationConverter"/>
+    </UserControl.Resources>
+    <UserControl.DataContext>
+        <VM:VendorDetailsViewModel/>
+    </UserControl.DataContext>
+    <Grid Name="MainGrid">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width ="*"/>
+            <ColumnDefinition Width ="789*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height ="40"/>
+            <RowDefinition Height ="400"/>
+        </Grid.RowDefinitions>
+        <StackPanel Margin ="5,10,0,0" Grid.Column="1" Grid.Row="1"
+                            >
+            <StackPanel.Resources>
+                <Style TargetType ="TextBox">
+                    <Setter Property ="Margin"
+                                    Value="60,0,150,0"/>
+                    <Setter Property ="VerticalContentAlignment"
+                                    Value="Center"/>
+                    <Setter Property ="MinWidth"
+                            Value="150"/>
+                </Style>
+                <Style TargetType ="DockPanel">
+                    <Setter Property ="Margin" Value="0,15,0,0"/>
+                </Style>
+                <Style TargetType ="Label">
+                    <Setter Property ="Width" Value="150"/>
+                    <Setter Property ="FontSize" Value="13"/>
+                </Style>
+            </StackPanel.Resources>
+            <DockPanel>
+                <Label Content ="Category Name" />
+                <TextBox Text ="{Binding VendorObj.VendorsName,UpdateSourceTrigger=PropertyChanged,ValidatesOnDataErrors =True}"/>
+            </DockPanel>
+            <DockPanel>
+                <Label Content ="Category Description"/>
+                <TextBox TextWrapping ="Wrap"
+                                 Text="{Binding VendorObj.VendorsDescption,UpdateSourceTrigger=PropertyChanged,ValidatesOnDataErrors =True}"
+                                 AcceptsReturn="True"
+                                 Height="100"              
+                                 />
+            </DockPanel>
+            <DockPanel>
+                <Label Content ="Online Vendor"/>
+                <CheckBox IsChecked="{Binding VendorObj.onlineVendor,UpdateSourceTrigger=PropertyChanged,ValidatesOnDataErrors =True}"/>
+            </DockPanel>
+            <Expander Grid.Row="2"
+                              Grid.ColumnSpan="2"
+                              
+                              IsExpanded="True">
+                <ListView ItemsSource="{Binding AddressList}" 
+                          SelectedItem="{Binding VendorObj.CurrentAddress}">
+                    <ListView.View>
+                        <GridView>
+                            <GridViewColumn Width="230" DisplayMemberBinding="{Binding PostCode}">
+                                <TextBlock Text="Post Code" MinWidth="230" />
+                            </GridViewColumn>
+                            <GridViewColumn Width="300" DisplayMemberBinding="{Binding AddressLine1}">
+                                <TextBlock Text="Address Line 1" MinWidth="300" />
+                            </GridViewColumn>
+                            <GridViewColumn Width="150" DisplayMemberBinding="{Binding Country}">
+                                <TextBlock Text="Country" MinWidth="150" />
+                            </GridViewColumn>
+                        </GridView>
+                    </ListView.View>
+                </ListView>
+            </Expander>
+        </StackPanel>
+        <ToolBar Background ="{Binding VendorObj.IsObjectValid,Converter={StaticResource ValidationConverter}}" Grid.Column="1">
+            <ToolBar.Resources>
+                <Style TargetType ="Button">
+                    <Setter Property ="Margin" Value="20,0,2,0"/>
+                </Style>
+            </ToolBar.Resources>
+            <Button Content ="Save" Command="{ Binding SaveChanges}"/>
+            <Button Content ="Close" Command="{ Binding UiCommands.CloseCurrentTab}"/>
+            <Separator Margin ="20,0,20,0"/>
+        </ToolBar>
+    </Grid >
+</UserControl>

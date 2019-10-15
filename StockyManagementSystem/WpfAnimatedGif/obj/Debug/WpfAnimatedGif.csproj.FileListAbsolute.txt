@@ -1,0 +1,11 @@
+C:\Stocky\StockyManagementSystem\WpfAnimatedGif\bin\Debug\WpfAnimatedGif.dll
+C:\Stocky\StockyManagementSystem\WpfAnimatedGif\bin\Debug\WpfAnimatedGif.pdb
+C:\Stocky\StockyManagementSystem\WpfAnimatedGif\obj\Debug\WpfAnimatedGif.csprojResolveAssemblyReference.cache
+C:\Stocky\StockyManagementSystem\WpfAnimatedGif\obj\Debug\WpfAnimatedGif.dll
+C:\Stocky\StockyManagementSystem\WpfAnimatedGif\obj\Debug\WpfAnimatedGif.pdb
+D:\Stocky\StockyManagementSystem\WpfAnimatedGif\bin\Debug\WpfAnimatedGif.dll
+D:\Stocky\StockyManagementSystem\WpfAnimatedGif\bin\Debug\WpfAnimatedGif.pdb
+D:\Stocky\StockyManagementSystem\WpfAnimatedGif\obj\Debug\WpfAnimatedGif.csprojAssemblyReference.cache
+D:\Stocky\StockyManagementSystem\WpfAnimatedGif\obj\Debug\WpfAnimatedGif.csproj.CoreCompileInputs.cache
+D:\Stocky\StockyManagementSystem\WpfAnimatedGif\obj\Debug\WpfAnimatedGif.dll
+D:\Stocky\StockyManagementSystem\WpfAnimatedGif\obj\Debug\WpfAnimatedGif.pdb

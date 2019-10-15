@@ -1,0 +1,23 @@
+﻿<UserControl x:Class="Stocky.Views.ListObjectSelectionView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Stocky.Views"
+             mc:Ignorable="d" 
+             x:Name="ObjectListCon"
+             d:DesignHeight="300" d:DesignWidth="300">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="30"/>
+        </Grid.RowDefinitions>
+        <ListView x:Name="ObjectList" ItemsSource="{Binding ObjectSourceList}"
+                    SelectedItem="{Binding SelectedObject}"
+                    DisplayMemberPath="{Binding DisplayMember,ElementName=ObjectListCon}"
+                    />
+        <Button Content="Submit" 
+                Command="{Binding ListSubmitCommand}" 
+                Grid.Row="1"/>
+    </Grid>
+</UserControl>

@@ -1,0 +1,73 @@
+﻿<UserControl x:Class="Stocky.Views.CategoryDetailsView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Stocky.Views"
+             xmlns:Con="clr-namespace:Stocky.UI.Converters"
+             xmlns:NT="clr-namespace:Stocky.UI.Controls"
+             xmlns:Local="clr-namespace:Stocky.ViewModels"
+             mc:Ignorable="d" 
+             Background="White"
+            >
+    <UserControl.Resources>
+        <Con:BoolToColour x:Key="ValidationConverter"/>
+    </UserControl.Resources>
+    <UserControl.DataContext>
+        <Local:CategoryDetailsViewModel/>
+    </UserControl.DataContext>
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="789*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="400"/>
+        </Grid.RowDefinitions>
+        <StackPanel Margin="5,10,0,0" Grid.Column="1" Grid.Row="1"
+                            >
+            <StackPanel.Resources>
+                <Style TargetType="TextBox">
+                    <Setter Property="Margin"
+                                    Value="60,0,150,0"/>
+                    <Setter Property="VerticalContentAlignment"
+                                    Value="Center"/>
+                    <Setter Property="MinWidth"
+                            Value="150"/>
+                </Style>
+                <Style TargetType="DockPanel">
+                    <Setter Property="Margin" Value="0,15,0,0"/>
+
+                </Style>
+                <Style TargetType="Label">
+                    <Setter Property="Width" Value="150"/>
+                    <Setter Property="FontSize" Value="13"/>
+
+                </Style>
+            </StackPanel.Resources>
+            <DockPanel>
+                <Label Content="Category Name" />
+                <TextBox Text="{Binding CategoryOBJ.Name ,UpdateSourceTrigger=PropertyChanged,ValidatesOnDataErrors=False}"/>
+            </DockPanel>
+            <DockPanel>
+                <Label Content="Category Description"/>
+                <TextBox TextWrapping="Wrap"
+                                 Text="{Binding CategoryOBJ.Description ,UpdateSourceTrigger=PropertyChanged,ValidatesOnDataErrors=False}"
+                                 AcceptsReturn="True"
+                                 Height="100"               
+                                 />
+            </DockPanel>
+        </StackPanel>
+        <ToolBar Background="{Binding CategoryOBJ.IsObjectValid,Converter={StaticResource ValidationConverter}}" Grid.Column="1">
+            <ToolBar.Resources>
+                <Style TargetType="Button">
+                    <Setter Property="Margin" Value="20,0,2,0"/>
+                </Style>
+            </ToolBar.Resources>
+            <Button Content="Save" Command="{Binding SaveChanges}"/>
+            <Button Content="Close" Command="{Binding UiCommands.CloseCurrentTab}"/>
+            <Separator Margin="20,0,20,0"/>
+        </ToolBar>
+    </Grid>
+</UserControl>

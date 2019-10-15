@@ -1,0 +1,29 @@
+﻿@model MVCTest.Models.StockManagerModel
+@{
+    ViewBag.Title = "StockManager";
+}
+
+
+<h2>StockManager</h2>
+<div class="navbar-collapse"
+    <ul class="nav navbar-nav">
+        <li>@Html.ActionLink("Refresh", "StockManager", "Stock")</li>    
+    </ul>
+
+</div>
+<div>
+    <p>         
+            @foreach (var item in Model.StockList)
+            {
+            
+                <div>
+                 <h4 class="SName">@item.Name @item.Created</h4>         
+                     <p class="SDesc">
+                         @item.Description
+                     </p> 
+                      @Html.ActionLink("Details","GoToDetails",new { id = item.Stockid })
+               </div>
+            }
+    </p>
+</div>
+

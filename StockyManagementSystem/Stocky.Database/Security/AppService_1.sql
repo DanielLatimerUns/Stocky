@@ -1,0 +1,3 @@
+﻿CREATE LOGIN [AppService]
+    WITH PASSWORD = N'enegc2IJtb{bsjpwjd1uhjgOmsFT7_&#$!~<wdnu:rb;yn<g', SID = 0xAF7940A2149AF342AE25A99294900081, DEFAULT_LANGUAGE = [us_english], CHECK_POLICY = OFF;
+

@@ -1,0 +1,6 @@
+C:\Stocky\StockyManagementSystem\EbayAPI\bin\Debug\EbayAPI.dll.config
+C:\Stocky\StockyManagementSystem\EbayAPI\bin\Debug\EbayAPI.dll
+C:\Stocky\StockyManagementSystem\EbayAPI\bin\Debug\EbayAPI.pdb
+C:\Stocky\StockyManagementSystem\EbayAPI\obj\Debug\EbayAPI.csprojResolveAssemblyReference.cache
+C:\Stocky\StockyManagementSystem\EbayAPI\obj\Debug\EbayAPI.dll
+C:\Stocky\StockyManagementSystem\EbayAPI\obj\Debug\EbayAPI.pdb

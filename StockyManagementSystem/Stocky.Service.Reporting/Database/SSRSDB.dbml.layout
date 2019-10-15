@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11, 8.5" name="SSRSDB">
+  <DataContextMoniker Name="/SSRSDBDataContext" />
+  <nestedChildShapes>
+    <classShape Id="cd3f00a1-cc6c-4b6b-9ef5-1b9e67709585" absoluteBounds="2, 2.125, 2, 5.6169254557291657">
+      <DataClassMoniker Name="/SSRSDBDataContext/Catalog" />
+      <nestedChildShapes>
+        <elementListCompartment Id="5513ee25-a8bd-40cf-9345-779d6b288b15" absoluteBounds="2.015, 2.585, 1.9700000000000002, 5.0569254557291661" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(2.70923076923077 : 7.74192545572917); (2.70923076923077 : 7.99192545572917); (3.30461538461538 : 7.99192545572917); (3.30461538461538 : 7.74192545572917)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/SSRSDBDataContext/Catalog/Catalog_Catalog" />
+      <nodes>
+        <classShapeMoniker Id="cd3f00a1-cc6c-4b6b-9ef5-1b9e67709585" />
+        <classShapeMoniker Id="cd3f00a1-cc6c-4b6b-9ef5-1b9e67709585" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(2.70923076923077 : 2.125); (2.70923076923077 : 1.875); (3.30461538461538 : 1.875); (3.30461538461538 : 2.125)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/SSRSDBDataContext/Catalog/Catalog_Catalog1" />
+      <nodes>
+        <classShapeMoniker Id="cd3f00a1-cc6c-4b6b-9ef5-1b9e67709585" />
+        <classShapeMoniker Id="cd3f00a1-cc6c-4b6b-9ef5-1b9e67709585" />
+      </nodes>
+    </associationConnector>
+  </nestedChildShapes>
+</ordesignerObjectsDiagram>

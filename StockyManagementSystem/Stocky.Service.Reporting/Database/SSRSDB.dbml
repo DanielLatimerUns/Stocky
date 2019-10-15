@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="ReportServer$HOMESQL" EntityNamespace="Stocky.Service.Reporting.Database" ContextNamespace="Stocky.Service.Reporting.Database" Class="SSRSDBDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Table Name="dbo.Catalog" Member="Catalogs">
+    <Type Name="Catalog">
+      <Column Name="ItemID" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Path" Type="System.String" DbType="NVarChar(425) NOT NULL" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="NVarChar(425) NOT NULL" CanBeNull="false" />
+      <Column Name="ParentID" Type="System.Guid" DbType="UniqueIdentifier" CanBeNull="true" />
+      <Column Name="Type" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Content" Type="System.Data.Linq.Binary" DbType="Image" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="Intermediate" Type="System.Guid" DbType="UniqueIdentifier" CanBeNull="true" />
+      <Column Name="SnapshotDataID" Type="System.Guid" DbType="UniqueIdentifier" CanBeNull="true" />
+      <Column Name="LinkSourceID" Type="System.Guid" DbType="UniqueIdentifier" CanBeNull="true" />
+      <Column Name="Property" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="Description" Type="System.String" DbType="NVarChar(512)" CanBeNull="true" />
+      <Column Name="Hidden" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="CreatedByID" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />
+      <Column Name="CreationDate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="ModifiedByID" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />
+      <Column Name="ModifiedDate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="MimeType" Type="System.String" DbType="NVarChar(260)" CanBeNull="true" />
+      <Column Name="SnapshotLimit" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Parameter" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="PolicyID" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />
+      <Column Name="PolicyRoot" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="ExecutionFlag" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="ExecutionTime" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="SubType" Type="System.String" DbType="NVarChar(128)" CanBeNull="true" />
+      <Column Name="ComponentID" Type="System.Guid" DbType="UniqueIdentifier" CanBeNull="true" />
+      <Association Name="Catalog_Catalog" Member="Catalogs" ThisKey="ItemID" OtherKey="LinkSourceID" Type="Catalog" />
+      <Association Name="Catalog_Catalog1" Member="Catalogs1" ThisKey="ItemID" OtherKey="ParentID" Type="Catalog" />
+      <Association Name="Catalog_Catalog" Member="Catalog1" ThisKey="LinkSourceID" OtherKey="ItemID" Type="Catalog" IsForeignKey="true" />
+      <Association Name="Catalog_Catalog1" Member="Catalog2" ThisKey="ParentID" OtherKey="ItemID" Type="Catalog" IsForeignKey="true" />
+    </Type>
+  </Table>
+</Database>

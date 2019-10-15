@@ -1,0 +1,13 @@
+C:\Stocky\StockyManagementSystem\Stocky.Service.Utility\bin\Debug\Stocky.Service.Utility.dll
+C:\Stocky\StockyManagementSystem\Stocky.Service.Utility\bin\Debug\Stocky.Service.Utility.pdb
+C:\Stocky\StockyManagementSystem\Stocky.Service.Utility\bin\Debug\Stocky.Data.dll
+C:\Stocky\StockyManagementSystem\Stocky.Service.Utility\bin\Debug\Stocky.DataAcesse.dll
+C:\Stocky\StockyManagementSystem\Stocky.Service.Utility\bin\Debug\Stocky.Utilitys.dll
+C:\Stocky\StockyManagementSystem\Stocky.Service.Utility\bin\Debug\MVVM_Framwork.dll
+C:\Stocky\StockyManagementSystem\Stocky.Service.Utility\bin\Debug\Stocky.DataAcesse.pdb
+C:\Stocky\StockyManagementSystem\Stocky.Service.Utility\bin\Debug\Stocky.Data.pdb
+C:\Stocky\StockyManagementSystem\Stocky.Service.Utility\bin\Debug\Stocky.Utilitys.pdb
+C:\Stocky\StockyManagementSystem\Stocky.Service.Utility\bin\Debug\MVVM_Framwork.pdb
+C:\Stocky\StockyManagementSystem\Stocky.Service.Utility\obj\Debug\Stocky.Service.Utility.csprojResolveAssemblyReference.cache
+C:\Stocky\StockyManagementSystem\Stocky.Service.Utility\obj\Debug\Stocky.Service.Utility.dll
+C:\Stocky\StockyManagementSystem\Stocky.Service.Utility\obj\Debug\Stocky.Service.Utility.pdb

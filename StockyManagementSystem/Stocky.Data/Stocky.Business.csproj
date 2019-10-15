@@ -1,0 +1,135 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{02A08DA7-2606-4B2D-87F9-955F40DE361C}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Stocky.Data</RootNamespace>
+    <AssemblyName>Stocky.Data</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="PresentationFramework.Aero" />
+    <Reference Include="presentationframework.aero2" />
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.Linq" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.ServiceModel.Web" />
+    <Reference Include="System.Windows.Interactivity, Version=4.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Windows.Presentation" />
+    <Reference Include="System.Xaml" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+    <Reference Include="WindowsBase" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Attributes\DataValidationAttributes.cs" />
+    <Compile Include="DataModels\DataModelBase.cs" />
+    <Compile Include="DataModels\Helpers.cs" />
+    <Compile Include="DataModels\SearchFilterObject.cs" />
+    <Compile Include="DataModels\skAddresses.cs" />
+    <Compile Include="DataModels\skCategory.cs" />
+    <Compile Include="DataModels\skPerson.cs" />
+    <Compile Include="DataModels\skPreference.cs" />
+    <Compile Include="DataModels\skReport.cs" />
+    <Compile Include="DataModels\skStock.cs" />
+    <Compile Include="DataModels\skStockHistory.cs" />
+    <Compile Include="DataModels\skThemeType.cs" />
+    <Compile Include="DataModels\skUser.cs" />
+    <Compile Include="DataModels\skValueBands.cs" />
+    <Compile Include="DataModels\skvendors.cs" />
+    <Compile Include="Interfaces\IDataModel.cs" />
+    <Compile Include="Interfaces\ITransaction.cs" />
+    <Compile Include="DataModels\Transaction\skPurchase.cs" />
+    <Compile Include="DataModels\Transaction\skRefund.cs" />
+    <Compile Include="DataModels\Transaction\skSales.cs" />
+    <Compile Include="DataModels\Transaction\skTransaction.cs" />
+    <Compile Include="DataModels\Transaction\skTransactionBase.cs" />
+    <Compile Include="DataModels\skTheme.cs" />
+    <Compile Include="DataModels\Validation.cs" />
+    <Compile Include="Exceptions\StockyExceptions.cs" />
+    <Compile Include="Notification\Notification.cs" />
+    <Compile Include="Notification\PopUpNotifiactionView.xaml.cs">
+      <DependentUpon>PopUpNotifiactionView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Notification\PopUpNotificationViewModel.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Proxies\AppClient.cs" />
+    <Compile Include="Proxies\AppDataClient.cs" />
+    <Compile Include="Proxies\AuthenticationClient.cs" />
+    <Compile Include="Proxies\EndPointDefernitions.cs" />
+    <Compile Include="Proxies\MailClient.cs" />
+    <Compile Include="Proxies\ReportClient.cs" />
+    <Compile Include="ServiceContracts\DataContracts\DownloadRequest.cs" />
+    <Compile Include="ServiceContracts\DataContracts\NotificationContract.cs" />
+    <Compile Include="ServiceContracts\DataContracts\RecipientContract.cs" />
+    <Compile Include="ServiceContracts\DataContracts\RemoteFileInfo.cs" />
+    <Compile Include="ServiceContracts\DataContracts\ReportContract.cs" />
+    <Compile Include="ServiceContracts\DataContracts\StockContract.cs" />
+    <Compile Include="ServiceContracts\DataContracts\TransactionContract.cs" />
+    <Compile Include="ServiceContracts\DataContracts\UserContract.cs" />
+    <Compile Include="ServiceContracts\DataContracts\ValueContract.cs" />
+    <Compile Include="ServiceContracts\DataContracts\VendorContract.cs" />
+    <Compile Include="ServiceContracts\ServiceInterfaces\IAppDataService.cs" />
+    <Compile Include="ServiceContracts\ServiceInterfaces\IAppService.cs" />
+    <Compile Include="ServiceContracts\ServiceInterfaces\IAuthenticationService.cs" />
+    <Compile Include="ServiceContracts\ServiceInterfaces\IMailService.cs" />
+    <Compile Include="ServiceContracts\ServiceInterfaces\IReportService.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\MVVM_Framwork\MVVM_Framwork.csproj">
+      <Project>{076f76af-f0ec-4979-8b79-b663ff021cb6}</Project>
+      <Name>MVVM_Framwork</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Include="Notification\PopUpNotifiactionView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

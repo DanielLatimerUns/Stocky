@@ -1,0 +1,10 @@
+C:\Stocky\StockyManagementSystem\Stocky.Service.Reporting\bin\Debug\Stocky.Service.Reporting.dll.config
+C:\Stocky\StockyManagementSystem\Stocky.Service.Reporting\bin\Debug\Stocky.Service.Reporting.dll
+C:\Stocky\StockyManagementSystem\Stocky.Service.Reporting\bin\Debug\Stocky.Service.Reporting.pdb
+C:\Stocky\StockyManagementSystem\Stocky.Service.Reporting\bin\Debug\Stocky.Data.dll
+C:\Stocky\StockyManagementSystem\Stocky.Service.Reporting\bin\Debug\MVVM_Framwork.dll
+C:\Stocky\StockyManagementSystem\Stocky.Service.Reporting\bin\Debug\Stocky.Data.pdb
+C:\Stocky\StockyManagementSystem\Stocky.Service.Reporting\bin\Debug\MVVM_Framwork.pdb
+C:\Stocky\StockyManagementSystem\Stocky.Service.Reporting\obj\Debug\Stocky.Service.Reporting.csprojResolveAssemblyReference.cache
+C:\Stocky\StockyManagementSystem\Stocky.Service.Reporting\obj\Debug\Stocky.Service.Reporting.dll
+C:\Stocky\StockyManagementSystem\Stocky.Service.Reporting\obj\Debug\Stocky.Service.Reporting.pdb

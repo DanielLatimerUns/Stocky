@@ -1,0 +1,47 @@
+﻿<UserControl x:Class="Stocky.Views.UserPreferanceView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:L="clr-namespace:Stocky.ViewModels"
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="300"
+             xmlns:db="clr-namespace:Debugger;assembly=WPFDebugger"          
+             db:ScreenDebugger.DebugObj="true" >
+    <UserControl.DataContext>
+        <L:UserPreferanceViewModel/>
+    </UserControl.DataContext>
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="160"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Border BorderThickness="1" BorderBrush="Black" Margin="15,10,0,0">
+            <StackPanel Background="White" Margin="0,0,0,0" >
+                <ItemsControl ItemsSource="{Binding Buttons}" Style="{DynamicResource PreferanceControl}" >
+                    <ItemsControl.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <StackPanel Orientation="Vertical" />
+                        </ItemsPanelTemplate>
+                    </ItemsControl.ItemsPanel>
+                    <ItemsControl.ItemTemplate>
+                        <DataTemplate>
+                            <WrapPanel Orientation="Horizontal" >
+                                <Button Content="{Binding Content}" Margin="1.3,5,0,0" Command="{Binding Command}" CommandParameter="{Binding Paramater}"
+                                        Height="35"  Width="140"
+                                        Style="{DynamicResource Buttons}"/>
+                            </WrapPanel>
+                        </DataTemplate>
+                    </ItemsControl.ItemTemplate>
+                </ItemsControl>
+            </StackPanel>
+        </Border>
+        <Grid Grid.Column="1" Background="White">
+            <Grid.Children>
+                <UserControl Content="{Binding Con}"/>
+            </Grid.Children>
+        </Grid>
+        
+    </Grid>
+    
+</UserControl>

@@ -1,0 +1,288 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="Stocky" Class="StockyDataDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Table Name="dbo.dtVendor" Member="dtVendors">
+    <Type Name="dtVendor">
+      <Column Name="vID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="VendorsName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="VendorsDescption" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+      <Column Name="OnlineVender" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="AddresseID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="dtVendor_dtPurchese" Member="dtPurcheses" ThisKey="vID" OtherKey="VendorID" Type="dtPurchese" />
+      <Association Name="dtAddress_dtVendor" Member="dtAddress" ThisKey="AddresseID" OtherKey="aID" Type="dtAddress" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.dtAddress" Member="dtAddresses">
+    <Type Name="dtAddress">
+      <Column Name="aID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="AddressLine1" Type="System.String" DbType="NVarChar(150)" CanBeNull="true" />
+      <Column Name="AddressLine2" Type="System.String" DbType="NVarChar(150)" CanBeNull="true" />
+      <Column Name="AddressLine3" Type="System.String" DbType="NVarChar(150)" CanBeNull="true" />
+      <Column Name="PostCode" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Town" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Country" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="County" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="isActive" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="Created" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="Updated" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Association Name="dtAddress_dtVendor" Member="dtVendors" ThisKey="aID" OtherKey="AddresseID" Type="dtVendor" />
+      <Association Name="dtAddress_dtAddressPersonRelationShip" Member="dtAddressPersonRelationShips" ThisKey="aID" OtherKey="AddressID" Type="dtAddressPersonRelationShip" />
+    </Type>
+  </Table>
+  <Table Name="dbo.dtAddressPersonRelationShip" Member="dtAddressPersonRelationShips">
+    <Type Name="dtAddressPersonRelationShip">
+      <Column Name="RelationshipID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="AddressID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="PersonID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="dtAddress_dtAddressPersonRelationShip" Member="dtAddress" ThisKey="AddressID" OtherKey="aID" Type="dtAddress" IsForeignKey="true" />
+      <Association Name="dtPerson_dtAddressPersonRelationShip" Member="dtPerson" ThisKey="PersonID" OtherKey="pID" Type="dtPerson" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.dtCategory" Member="dtCategories">
+    <Type Name="dtCategory">
+      <Column Name="CatID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Description" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="Title" Type="System.String" DbType="NVarChar(30) NOT NULL" CanBeNull="false" />
+      <Association Name="dtCategory_dtStock" Member="dtStocks" ThisKey="CatID" OtherKey="CategoryID" Type="dtStock" />
+    </Type>
+  </Table>
+  <Table Name="dbo.dtConfig" Member="dtConfigs">
+    <Type Name="dtConfig">
+      <Column Name="CID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="ConfigType" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="ConfigCode" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="ConfigDescription" Type="System.String" DbType="NVarChar(250) NOT NULL" CanBeNull="false" />
+      <Column Name="ConfigValue" Type="System.String" DbType="NVarChar(MAX) NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.dtPerson" Member="dtPersons">
+    <Type Name="dtPerson">
+      <Column Name="pID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="FirstName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="SureName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Email" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="HomePhone" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="WorkPhone" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="EbayName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Created" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="Updated" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Association Name="dtPerson_dtAddressPersonRelationShip" Member="dtAddressPersonRelationShips" ThisKey="pID" OtherKey="PersonID" Type="dtAddressPersonRelationShip" />
+      <Association Name="dtPerson_dtSale" Member="dtSales" ThisKey="pID" OtherKey="PersonID" Type="dtSale" />
+    </Type>
+  </Table>
+  <Table Name="dbo.dtPurchese" Member="dtPurcheses">
+    <Type Name="dtPurchese">
+      <Column Name="pID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="ItemTitle" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="ItemDescription" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+      <Column Name="PurchesedValue" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="ShippingCosts" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="VendorID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="InvoiceID" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="[Purchesed Date]" Member="Purchesed_Date" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="AddedBy" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="PayPalTransactionID" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="IsExpense" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="Created" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="Updated" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Association Name="dtPurchese_dtTransactionLedger" Member="dtTransactionLedgers" ThisKey="pID" OtherKey="PurchaseID" Type="dtTransactionLedger" />
+      <Association Name="dtPurchese_dtStock" Member="dtStocks" ThisKey="pID" OtherKey="PurchaseID" Type="dtStock" />
+      <Association Name="dtVendor_dtPurchese" Member="dtVendor" ThisKey="VendorID" OtherKey="vID" Type="dtVendor" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.dtRefund" Member="dtRefunds">
+    <Type Name="dtRefund">
+      <Column Name="rID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Amount" Type="System.Decimal" DbType="Money NOT NULL" CanBeNull="false" />
+      <Column Name="Reason" Type="System.String" DbType="NVarChar(150) NOT NULL" CanBeNull="false" />
+      <Column Name="Postage" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="StockID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Refunded" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="RefundedBy" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="PayPalTransactionID" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Created" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="Updated" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Association Name="dtRefund_dtTransactionLedger" Member="dtTransactionLedgers" ThisKey="rID" OtherKey="RefundID" Type="dtTransactionLedger" />
+      <Association Name="dtUser_dtRefund" Member="dtUser" ThisKey="RefundedBy" OtherKey="uID" Type="dtUser" IsForeignKey="true" />
+      <Association Name="dtStock_dtRefund" Member="dtStock" ThisKey="StockID" OtherKey="sID" Type="dtStock" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.dtSale" Member="dtSales">
+    <Type Name="dtSale">
+      <Column Name="tID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Title" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+      <Column Name="Description" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="SoldValue" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="PandP" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="EbayFees" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="PaypayFees" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="ExtraFee1" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="ExtraFee2" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="SoldDate" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="SaleMethod" Type="System.String" DbType="NVarChar(150)" CanBeNull="true" />
+      <Column Name="SoldBy" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="PersonID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="PayPalTransactionID" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Created" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="Updated" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Association Name="dtSale_dtTransactionLedger" Member="dtTransactionLedgers" ThisKey="tID" OtherKey="SaleID" Type="dtTransactionLedger" />
+      <Association Name="dtSale_dtStock" Member="dtStocks" ThisKey="tID" OtherKey="SaleID" Type="dtStock" />
+      <Association Name="dtPerson_dtSale" Member="dtPerson" ThisKey="PersonID" OtherKey="pID" Type="dtPerson" IsForeignKey="true" />
+      <Association Name="dtUser_dtSale" Member="dtUser" ThisKey="SoldBy" OtherKey="uID" Type="dtUser" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.dtSettingLookup" Member="dtSettingLookups">
+    <Type Name="dtSettingLookup">
+      <Column Name="sID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Code" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Value" Type="System.String" DbType="NVarChar(MAX) NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.dtStockDetail" Member="dtStockDetails">
+    <Type Name="dtStockDetail">
+      <Column Name="SdID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="StockID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="PurchaseValue" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="SaleValue" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Association Name="dtStock_dtStockDetail" Member="dtStock" ThisKey="StockID" OtherKey="sID" Type="dtStock" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.dtStockHistory" Member="dtStockHistories">
+    <Type Name="dtStockHistory">
+      <Column Name="ssID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="StoockID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Status" Type="System.String" DbType="NVarChar(150)" CanBeNull="true" />
+      <Column Name="Value" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="UserID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Created" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="StatusID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="dtUser_dtStockHistory" Member="dtUser" ThisKey="UserID" OtherKey="uID" Type="dtUser" IsForeignKey="true" />
+      <Association Name="dtStock_dtStockHistory" Member="dtStock" ThisKey="StoockID" OtherKey="sID" Type="dtStock" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.dtTheme" Member="dtThemes">
+    <Type Name="dtTheme">
+      <Column Name="thID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="NVarChar(250) NOT NULL" CanBeNull="false" />
+      <Column Name="Description" Type="System.String" DbType="NVarChar(250) NOT NULL" CanBeNull="false" />
+      <Column Name="ThemXML" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Association Name="dtTheme_dtUser" Member="dtUsers" ThisKey="thID" OtherKey="ThemeID" Type="dtUser" />
+    </Type>
+  </Table>
+  <Table Name="dbo.dtTransactionLedger" Member="dtTransactionLedgers">
+    <Type Name="dtTransactionLedger">
+      <Column Name="tranID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="SaleID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="RefundID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="PurchaseID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="TransactionType" Type="System.String" DbType="NVarChar(250) NOT NULL" CanBeNull="false" />
+      <Column Name="TotelAmount" Type="System.Decimal" DbType="Money NOT NULL" CanBeNull="false" />
+      <Column Name="TransactionDateTime" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Association Name="dtPurchese_dtTransactionLedger" Member="dtPurchese" ThisKey="PurchaseID" OtherKey="pID" Type="dtPurchese" IsForeignKey="true" />
+      <Association Name="dtRefund_dtTransactionLedger" Member="dtRefund" ThisKey="RefundID" OtherKey="rID" Type="dtRefund" IsForeignKey="true" />
+      <Association Name="dtSale_dtTransactionLedger" Member="dtSale" ThisKey="SaleID" OtherKey="tID" Type="dtSale" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.dtUser" Member="dtUsers">
+    <Type Name="dtUser">
+      <Column Name="uID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="UserName" Type="System.String" DbType="NVarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="PassWord" Type="System.String" DbType="NVarChar(250) NOT NULL" CanBeNull="false" />
+      <Column Name="Updated" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="Created" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="IsAdmin" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="ThemeID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="dtUser_dtRefund" Member="dtRefunds" ThisKey="uID" OtherKey="RefundedBy" Type="dtRefund" />
+      <Association Name="dtUser_dtSale" Member="dtSales" ThisKey="uID" OtherKey="SoldBy" Type="dtSale" />
+      <Association Name="dtUser_dtStockHistory" Member="dtStockHistories" ThisKey="uID" OtherKey="UserID" Type="dtStockHistory" />
+      <Association Name="dtUser_dtUserDetail" Member="dtUserDetails" ThisKey="uID" OtherKey="UserID" Type="dtUserDetail" />
+      <Association Name="dtUser_dtUserPreferance" Member="dtUserPreferances" ThisKey="uID" OtherKey="UserID" Type="dtUserPreferance" />
+      <Association Name="dtUser_dtStock" Member="dtStocks" ThisKey="uID" OtherKey="CreatedBy" Type="dtStock" />
+      <Association Name="dtUser_dtNotification" Member="dtNotifications" ThisKey="uID" OtherKey="RaisedBy" Type="dtNotification" />
+      <Association Name="dtTheme_dtUser" Member="dtTheme" ThisKey="ThemeID" OtherKey="thID" Type="dtTheme" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.dtUserDetail" Member="dtUserDetails">
+    <Type Name="dtUserDetail">
+      <Column Name="udID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="UserID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="DateOfBirth" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="FirstName" Type="System.String" DbType="NVarChar(150)" CanBeNull="true" />
+      <Column Name="LastName" Type="System.String" DbType="NVarChar(150)" CanBeNull="true" />
+      <Column Name="Initials" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Email" Type="System.String" DbType="NVarChar(150) NOT NULL" CanBeNull="false" />
+      <Column Name="HomePhone" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="WorkPhone" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Association Name="dtUser_dtUserDetail" Member="dtUser" ThisKey="UserID" OtherKey="uID" Type="dtUser" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.dtUserPreferance" Member="dtUserPreferances">
+    <Type Name="dtUserPreferance">
+      <Column Name="upID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Code" Type="System.String" DbType="NVarChar(10) NOT NULL" CanBeNull="false" />
+      <Column Name="UserID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="PreferenceTypeID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="NVarChar(150) NOT NULL" CanBeNull="false" />
+      <Column Name="Description" Type="System.String" DbType="NVarChar(150) NOT NULL" CanBeNull="false" />
+      <Column Name="Value" Type="System.String" DbType="NVarChar(MAX) NOT NULL" CanBeNull="false" />
+      <Association Name="dtUser_dtUserPreferance" Member="dtUser" ThisKey="UserID" OtherKey="uID" Type="dtUser" IsForeignKey="true" />
+      <Association Name="dtUserPreferanceType_dtUserPreferance" Member="dtUserPreferanceType" ThisKey="PreferenceTypeID" OtherKey="preftypeID" Type="dtUserPreferanceType" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.dtUserPreferanceType" Member="dtUserPreferanceTypes">
+    <Type Name="dtUserPreferanceType">
+      <Column Name="preftypeID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Description" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Association Name="dtUserPreferanceType_dtUserPreferance" Member="dtUserPreferances" ThisKey="preftypeID" OtherKey="PreferenceTypeID" Type="dtUserPreferance" />
+    </Type>
+  </Table>
+  <Table Name="dbo.dtValueBand" Member="dtValueBands">
+    <Type Name="dtValueBand">
+      <Column Name="ivID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="LowValue" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="HighValue" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="Description" Type="System.String" DbType="NChar(30)" CanBeNull="true" />
+      <Association Name="dtValueBand_dtValueBand" Member="dtValueBand2" ThisKey="ivID" OtherKey="ivID" Type="dtValueBand" Cardinality="One" />
+      <Association Name="dtValueBand_dtStock" Member="dtStocks" ThisKey="ivID" OtherKey="ValueBandID" Type="dtStock" />
+      <Association Name="dtValueBand_dtValueBand" Member="dtValueBand1" ThisKey="ivID" OtherKey="ivID" Type="dtValueBand" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.dtStock" Member="dtStocks">
+    <Type Name="dtStock">
+      <Column Name="sID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="CategoryID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="ItemDesc" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="ItemTitle" Type="System.String" DbType="NVarChar(150)" CanBeNull="true" />
+      <Column Name="ValueBandID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Sold" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="Batch" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CreatedBy" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Updated" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="Created" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="SaleID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="PurchaseID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="dtStock_dtRefund" Member="dtRefunds" ThisKey="sID" OtherKey="StockID" Type="dtRefund" />
+      <Association Name="dtStock_dtStockDetail" Member="dtStockDetails" ThisKey="sID" OtherKey="StockID" Type="dtStockDetail" />
+      <Association Name="dtStock_dtStockHistory" Member="dtStockHistories" ThisKey="sID" OtherKey="StoockID" Type="dtStockHistory" />
+      <Association Name="dtPurchese_dtStock" Member="dtPurchese" ThisKey="PurchaseID" OtherKey="pID" Type="dtPurchese" IsForeignKey="true" />
+      <Association Name="dtSale_dtStock" Member="dtSale" ThisKey="SaleID" OtherKey="tID" Type="dtSale" IsForeignKey="true" />
+      <Association Name="dtCategory_dtStock" Member="dtCategory" ThisKey="CategoryID" OtherKey="CatID" Type="dtCategory" IsForeignKey="true" />
+      <Association Name="dtUser_dtStock" Member="dtUser" ThisKey="CreatedBy" OtherKey="uID" Type="dtUser" IsForeignKey="true" />
+      <Association Name="dtValueBand_dtStock" Member="dtValueBand" ThisKey="ValueBandID" OtherKey="ivID" Type="dtValueBand" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.dtNotification" Member="dtNotifications">
+    <Type Name="dtNotification">
+      <Column Name="NitificationID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="NVarChar(150)" CanBeNull="true" />
+      <Column Name="Description" Type="System.String" DbType="NVarChar(500) NOT NULL" CanBeNull="false" />
+      <Column Name="RaisedBy" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="IsNew" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="EmailMsg" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="ObjectType" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Created" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="Viewed" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="NotificationGUID" Type="System.Guid" DbType="UniqueIdentifier" CanBeNull="true" />
+      <Association Name="dtUser_dtNotification" Member="dtUser" ThisKey="RaisedBy" OtherKey="uID" Type="dtUser" IsForeignKey="true" />
+    </Type>
+  </Table>
+</Database>

@@ -1,0 +1,105 @@
+﻿<UserControl
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:Local="clr-namespace:Stocky.ViewModels" 
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+        xmlns:VM="clr-namespace:Stocky.ViewModels"
+        xmlns:Con="clr-namespace:Stocky.UI.Converters"
+        xmlns:NT="clr-namespace:Stocky.UI.Controls"
+        mc:Ignorable="d"
+        x:Class="Stocky.Views.NewStockView"         
+        >
+    <UserControl.DataContext>
+        <Local:NewStockViewModel/>
+    </UserControl.DataContext>
+    <UserControl.Resources>
+        <Con:BoolToColour x:Key="ValidationConverter"/>
+        <Con:DecimalParser x:Key="DecimalParser"/>
+    </UserControl.Resources>
+    <Grid>
+        <Grid.Resources>
+            <Style  TargetType="Label" BasedOn="{StaticResource MainLabel}">
+                <Setter Property="Width" Value="100"/>
+                <Setter Property="FontSize" Value="13"/>
+            </Style>
+            <Style TargetType="TextBox" BasedOn="{StaticResource MainTextBox}">
+                <Setter Property="Margin"
+                                    Value="60,0,150,0"/>
+                <Setter Property="VerticalContentAlignment"
+                                    Value="Center"/>
+            </Style>
+        </Grid.Resources>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="5*"/>
+            <ColumnDefinition Width="789*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="0.1*"/>
+            <RowDefinition Height="1*"/>
+        </Grid.RowDefinitions>
+        <StackPanel Margin="5,10,0,0" Grid.Column="1" Grid.Row="1"
+                            >
+            <StackPanel.Resources>
+                <Style TargetType="DockPanel">
+                    <Setter Property="Margin" Value="0,15,0,0"/>
+                </Style>
+            </StackPanel.Resources>
+            <DockPanel>
+               
+                <Label Content="Title"  />
+                <TextBox  Text="{Binding  StockDetails.Name,UpdateSourceTrigger=PropertyChanged,ValidatesOnDataErrors=False}"/>
+            </DockPanel>
+            <DockPanel>
+                <Label Content="Description"/>
+                <TextBox TextWrapping="Wrap"
+                                 Text="{Binding StockDetails.Description,UpdateSourceTrigger=PropertyChanged,ValidatesOnDataErrors=False}"
+                                 AcceptsReturn="True"
+                                 Height="100"
+                                 
+                                 />
+            </DockPanel>
+            <DockPanel>
+                <Label Content="Category"/>
+                <ComboBox Width="240"
+                                    HorizontalAlignment="Left"
+                                    Margin="100,0,0,0"
+                                    ItemsSource="{Binding CategoryList}"
+                                    SelectedItem="{Binding StockDetails.CategoryObject}"
+                                    DisplayMemberPath="Name"/>
+            </DockPanel>
+
+            <DockPanel>
+                <Label Content="Value Band"/>
+                <ComboBox Width="240"
+                                  HorizontalAlignment="Left"
+                                  Margin="100,0,0,0"
+                                  ItemsSource="{Binding ValueBandList}"
+                                  SelectedItem="{Binding StockDetails.ValueBandObject}"
+                                  DisplayMemberPath="Description"/>
+            </DockPanel>
+            <DockPanel>
+                <Label Content="Purchase Cost"/>
+                <NT:skNumericTextBox Width="240"
+                                  HorizontalAlignment="Left"
+                                  Margin="100,0,0,0" 
+                                  IsCurrency="True"
+                                  Text="{Binding StockDetails.purchasedvalue,UpdateSourceTrigger=PropertyChanged,ValidatesOnDataErrors=False ,StringFormat=c}"/>
+            </DockPanel>
+        </StackPanel>
+        <DockPanel Grid.Column="1" 
+                   VerticalAlignment="Top" 
+                   HorizontalAlignment="left" 
+                   Margin="10,10,0,0">
+            <Button Name="btnSave" 
+                    Content="Save" 
+                    Command="{Binding SubmitStock}"
+                    Background="{Binding StockDetails.IsObjectValid,Converter={StaticResource ValidationConverter}}"
+                    Style="{DynamicResource SaveCloseButtons}"/>
+            <Button Name="btnClose" 
+                    Content="Close" 
+                    Command="{Binding UiCommands.CloseCurrentTab}"
+                    Style="{DynamicResource SaveCloseButtons}"/>
+        </DockPanel>
+    </Grid>
+</UserControl>

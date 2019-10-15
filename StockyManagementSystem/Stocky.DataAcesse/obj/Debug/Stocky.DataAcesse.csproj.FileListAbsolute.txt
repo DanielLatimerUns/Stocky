@@ -1,0 +1,12 @@
+C:\Stocky\StockyManagementSystem\Stocky.DataAcesse\bin\Debug\Stocky.DataAcesse.dll.config
+C:\Stocky\StockyManagementSystem\Stocky.DataAcesse\bin\Debug\Stocky.DataAcesse.dll
+C:\Stocky\StockyManagementSystem\Stocky.DataAcesse\bin\Debug\Stocky.DataAcesse.pdb
+C:\Stocky\StockyManagementSystem\Stocky.DataAcesse\bin\Debug\Stocky.Data.dll
+C:\Stocky\StockyManagementSystem\Stocky.DataAcesse\bin\Debug\Stocky.Utilitys.dll
+C:\Stocky\StockyManagementSystem\Stocky.DataAcesse\bin\Debug\MVVM_Framwork.dll
+C:\Stocky\StockyManagementSystem\Stocky.DataAcesse\bin\Debug\Stocky.Data.pdb
+C:\Stocky\StockyManagementSystem\Stocky.DataAcesse\bin\Debug\Stocky.Utilitys.pdb
+C:\Stocky\StockyManagementSystem\Stocky.DataAcesse\bin\Debug\MVVM_Framwork.pdb
+C:\Stocky\StockyManagementSystem\Stocky.DataAcesse\obj\Debug\Stocky.DataAcesse.csprojResolveAssemblyReference.cache
+C:\Stocky\StockyManagementSystem\Stocky.DataAcesse\obj\Debug\Stocky.DataAcesse.dll
+C:\Stocky\StockyManagementSystem\Stocky.DataAcesse\obj\Debug\Stocky.DataAcesse.pdb

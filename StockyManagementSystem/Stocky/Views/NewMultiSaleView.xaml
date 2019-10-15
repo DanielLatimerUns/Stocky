@@ -1,0 +1,393 @@
+﻿<UserControl x:Class="Stocky.Views.NewMultiSaleView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Stocky.Views"
+             xmlns:VM="clr-namespace:Stocky.ViewModels"
+             xmlns:CON="clr-namespace:Stocky.UI.Controls"
+             xmlns:Con="clr-namespace:Stocky.UI.Converters"
+             xmlns:I="http://schemas.microsoft.com/expression/2010/interactivity"
+             mc:Ignorable="d">
+    <UserControl.DataContext>
+        <VM:NewMultiSaleViewModel/>
+    </UserControl.DataContext>
+    <UserControl.Resources>
+        <Con:BoolToColour x:Key="ValidationConverter"/>
+    </UserControl.Resources>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <ToolBar Background="{Binding TransactionDetails.IsObjectValid,Converter={StaticResource ValidationConverter}}">
+            <ToolBar.Resources>
+                <Style TargetType="Button">
+                    <Setter Property="Margin" Value="20,0,2,0"/>
+                </Style>
+            </ToolBar.Resources>
+            <Button Content="Save" Command="{Binding Submitsale}"/>
+            <Button Content="Close" Command="{Binding UiCommands.CloseCurrentTab}" />
+            <Separator Margin="20,0,20,0"/>
+        </ToolBar>
+        <TabControl Name="MainTabCon" TabStripPlacement="Left"
+                    BorderBrush="LightGray"
+                    Grid.Row="1">
+            <TabControl.Resources>
+                <Style TargetType="TabItem">
+                    <Setter Property="Height" Value="50"/>
+                    <Setter Property="Background" Value="LightBlue"/>
+                    <Setter Property="Width" Value="120"/>
+                </Style>
+            </TabControl.Resources>
+            <TabItem Name="PT" Header="Sale Details" Margin="0,0,-2,0">
+                <Grid>
+                    <StackPanel Margin="10,10,0,0" Grid.ColumnSpan="2"
+                            >
+                        <StackPanel.Resources>
+                            <Style TargetType="TextBox">
+                                <Setter Property="Margin"
+                                    Value="60,0,150,0"/>
+                                <Setter Property="VerticalContentAlignment"
+                                    Value="Center"/>
+                            </Style>
+                            <Style TargetType="DockPanel">
+                                <Setter Property="Margin" Value="0,40,0,0"/>
+                            </Style>
+                            <Style TargetType="Label">
+                                <Setter Property="Width" Value="100"/>
+                                <Setter Property="FontSize" Value="13"/>
+                            </Style>
+                        </StackPanel.Resources>
+                        <DockPanel>
+                            <Label Content="Title" />
+                            <TextBox Text="{Binding TransactionDetails.Title,UpdateSourceTrigger=PropertyChanged,ValidatesOnDataErrors=False}"  />
+                        </DockPanel>
+                        <DockPanel>
+                            <Label Content="Description"/>
+                            <TextBox TextWrapping="Wrap"
+                                 Text="{Binding TransactionDetails.Description,UpdateSourceTrigger=PropertyChanged,ValidatesOnDataErrors=False}"
+                                 AcceptsReturn="True"
+                                 Height="100"/>
+                        </DockPanel>
+                        <DockPanel>
+                            <Label Content="Sale Method"/>
+                            <TextBox Width="240"
+                                    HorizontalAlignment="Left"
+                                    Margin="100,0,0,0"
+                                     Text="{Binding TransactionDetails.SaleMethod,UpdateSourceTrigger=PropertyChanged,ValidatesOnDataErrors=False}"/>
+                        </DockPanel>
+                        <DockPanel>
+                            <Label Content="Sale Date"/>
+                            <DatePicker Width="240"
+                                        SelectedDate="{Binding TransactionDetails.SaleDate,UpdateSourceTrigger=PropertyChanged,ValidatesOnDataErrors=False}"
+                                  HorizontalAlignment="Left"
+                                    Margin="100,0,0,0"/>
+                        </DockPanel>
+                        <DockPanel>
+                            <Label Content="Postage Cost"/>
+                            <CON:skNumericTextBox Width="240"
+                                      Text="{Binding TransactionDetails.Postage,UpdateSourceTrigger=LostFocus,ValidatesOnDataErrors=False }"
+                                  HorizontalAlignment="Left"
+                                    Margin="100,0,0,0"/>
+                        </DockPanel>
+                        <DockPanel>
+                            <Label Content="PayPal Fee"/>
+                            <CON:skNumericTextBox Width="240"
+                                      Text="{Binding TransactionDetails.PayPalFees,UpdateSourceTrigger=LostFocus,ValidatesOnDataErrors=False}"
+                                  HorizontalAlignment="Left"
+                                    Margin="100,0,0,0"/>
+                        </DockPanel>
+                        <DockPanel>
+                            <Label Content="PayPal ID"/>
+                            <TextBox Width="240"
+                                      Text="{Binding TransactionDetails.PayPalTransactionID,UpdateSourceTrigger=PropertyChanged,ValidatesOnDataErrors=False}"
+                                  HorizontalAlignment="Left"
+                                    Margin="100,0,0,0"/>
+                        </DockPanel>
+                    </StackPanel>
+                </Grid>
+            </TabItem>
+            <TabItem Header="Recicipent" Margin="-2,0,0,0" VerticalAlignment="Bottom">
+                <Grid>
+                    <Grid >
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="0*"/>
+                            <ColumnDefinition Width="2*"/>
+                            <ColumnDefinition/>
+                            <ColumnDefinition Width="140*"/>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="40" />
+                            <RowDefinition Height="*" />
+                            <RowDefinition Height="50"/>
+                        </Grid.RowDefinitions>
+                        <DockPanel Grid.Row="1" Grid.ColumnSpan="4">
+                          <Expander IsExpanded="True" DockPanel.Dock="Top">
+                            <ListView ItemsSource="{Binding PersonList}" SelectedItem="{Binding SelectedPersonOBJ}" Margin="20,15,60,0">
+                                <ListView.View>
+                                    <GridView>
+                                            <GridViewColumn Width="120" DisplayMemberBinding="{Binding FirstName}">
+                                            <TextBlock Text="First Name" MinWidth="120" />
+                                        </GridViewColumn>
+                                            <GridViewColumn Width="120" DisplayMemberBinding="{Binding Surname}">
+                                            <TextBlock Text="Last Name" MinWidth="120" />
+                                        </GridViewColumn>
+                                            <GridViewColumn Width="200" DisplayMemberBinding="{Binding Email}">
+                                            <TextBlock Text="Email" MinWidth="200" />
+                                        </GridViewColumn>
+                                    </GridView>
+                                </ListView.View>
+                            </ListView>
+                            </Expander>
+                            <WrapPanel Margin="0,20,0,5">
+                                <Button Content="Add New Person" Height="25" Width="150" Command="{Binding AddNewPersonCommand}"  />
+                            </WrapPanel>
+                        </DockPanel>
+                       
+                    </Grid>
+                </Grid>
+            </TabItem>
+            <TabItem Name="ST" Header="Stock Details">
+                <Grid Name="maingrid">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="5*"/>
+                        <ColumnDefinition Width="789*"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="400"/>
+                        <RowDefinition Height="15"/>
+                        <RowDefinition Height="90"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+
+                    <Grid Grid.Row="0" Grid.ColumnSpan="2" >
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="50"/>
+                            <RowDefinition Height="*"/>
+                        </Grid.RowDefinitions>
+                        <TextBlock Text="Select Stock Items to add to sale"
+                                   VerticalAlignment="Center"
+                                   FontSize="20"
+                                   Margin="15,0,0,0"/>
+                        <Expander Grid.Row="1"
+                              IsExpanded="True">
+                            <ListView ItemsSource="{Binding StockList}" SelectedItem="{Binding SelectedStock}">
+                                <ListView.View>
+                                    <GridView>
+                                        <GridViewColumn Width="150" DisplayMemberBinding="{Binding Stockid}">
+                                            <TextBlock Text="Stock ID" MinWidth="150" />
+                                        </GridViewColumn>
+                                        <GridViewColumn Width="200" DisplayMemberBinding="{Binding Name}">
+                                            <TextBlock Text="Title" MinWidth="200" />
+                                        </GridViewColumn>
+                                        <GridViewColumn Width="250" DisplayMemberBinding="{Binding Description}">
+                                            <TextBlock Text="Description" MinWidth="250" />
+                                        </GridViewColumn>
+                                        <GridViewColumn Width="150" DisplayMemberBinding="{Binding purchasedvalue}">
+                                            <TextBlock Text="Purchased Value" MinWidth="150" />
+                                        </GridViewColumn>
+                                    </GridView>
+                                </ListView.View>
+                            </ListView>
+                        </Expander>
+                    </Grid>
+                    <GridSplitter Grid.Row="1" Grid.ColumnSpan="2" HorizontalAlignment="Stretch"  Background="AliceBlue"/>
+                    <StackPanel Grid.Row="2"
+                                Orientation="Vertical"
+                                HorizontalAlignment="Center" Grid.Column="1" Margin="142,0,147,0">
+                        <WrapPanel HorizontalAlignment="Center"
+                                   Margin="0,4,0,10">
+                            <Label Content="Sale Value"/>
+                            <CON:skNumericTextBox Width="200" Text="{Binding StockItemSaleValue,UpdateSourceTrigger=PropertyChanged,StringFormat=c}"/>
+                        </WrapPanel>
+                        <WrapPanel>
+                            <Button Command="{Binding AddStockToSale}" Style="{DynamicResource addButton}"/>
+                            <Button Command="{Binding RemoveStockFromSale}" Style="{DynamicResource removeButton}"/>
+                            <Button Command="{Binding ClearStockFromSale}"  Style="{DynamicResource clearButton}"/>
+                        </WrapPanel>
+                    </StackPanel>
+                  <Expander Grid.Row="3"
+                            Grid.ColumnSpan="2"
+                            IsExpanded="True">
+                            <ListView ItemsSource="{Binding StockSaleList}" SelectedItem="{Binding SelectedStock}"  >
+                             <ListView.View>
+                             <GridView >
+                                    <GridViewColumn Width="150" DisplayMemberBinding="{Binding Stockid}">
+                                        <TextBlock Text="Stock ID" MinWidth="150" />
+                                    </GridViewColumn>
+                                    <GridViewColumn Width="150" DisplayMemberBinding="{Binding Name}">
+                                        <TextBlock Text="Title" MinWidth="150" />
+                                    </GridViewColumn>
+                                    <GridViewColumn Width="150" DisplayMemberBinding="{Binding Description}">
+                                        <TextBlock Text="Description" MinWidth="150" />
+                                    </GridViewColumn>
+                                    <GridViewColumn Width="150" DisplayMemberBinding="{Binding purchasedvalue}">
+                                        <TextBlock Text="Purchased Value" MinWidth="150" />
+                                    </GridViewColumn>
+                                    <GridViewColumn Width="150" DisplayMemberBinding="{Binding SaleValue}">
+                                        <TextBlock Text="Sale Value" MinWidth="150" />
+                                    </GridViewColumn>
+                        </GridView>
+                       </ListView.View>
+                      </ListView>
+                     </Expander>
+                </Grid>
+            </TabItem>
+            <TabItem Header="Summary" Margin="-2,0,0,0" VerticalAlignment="Bottom">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="20"/>
+                        <RowDefinition Height="300"/>
+                        <RowDefinition Height="120"/>
+                        <RowDefinition Height="40"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                    <StackPanel Orientation="Horizontal"
+                                HorizontalAlignment="Center">
+                        <TextBlock FontSize="14">
+                            <Bold>Sale Details</Bold>
+                        </TextBlock>
+                    </StackPanel>
+                    <StackPanel Margin="10,10,0,0" Grid.Row="1"
+                            >
+                        <StackPanel.Resources>
+                            <Style TargetType="TextBox">
+                                <Setter Property="Margin"
+                                    Value="60,0,150,0"/>
+                                <Setter Property="VerticalContentAlignment"
+                                    Value="Center"/>
+                            </Style>
+                            <Style TargetType="DockPanel">
+                                <Setter Property="Margin" Value="0,15,0,0"/>
+                            </Style>
+                            <Style TargetType="Label">
+                                <Setter Property="Width" Value="100"/>
+                                <Setter Property="FontSize" Value="13"/>
+                            </Style>
+                        </StackPanel.Resources>
+                        <DockPanel>
+                            <Label Content="Title" />
+                            <TextBox Text="{Binding TransactionDetails.Title,UpdateSourceTrigger=PropertyChanged,ValidatesOnDataErrors=False}" 
+                                     IsReadOnly="True"/>
+                        </DockPanel>
+                        <DockPanel>
+                            <Label Content="Description"/>
+                            <TextBox TextWrapping="Wrap"
+                                 Text="{Binding TransactionDetails.Description,UpdateSourceTrigger=PropertyChanged,ValidatesOnDataErrors=False}"
+                                 AcceptsReturn="True"
+                                     IsReadOnly="True"
+                                 Height="100"/>
+                        </DockPanel>
+                        <DockPanel>
+                            <Label Content="Sale Method"/>
+                            <TextBox Width="240"
+                                    HorizontalAlignment="Left"
+                                    Margin="100,0,0,0"
+                                     Text="{Binding TransactionDetails.SaleMethod,UpdateSourceTrigger=PropertyChanged,ValidatesOnDataErrors=False}"
+                                     IsReadOnly="True"/>
+                        </DockPanel>
+                        <DockPanel>
+                            <Label Content="Sale Date"/>
+                            <DatePicker Width="240"
+                                  HorizontalAlignment="Left"
+                                   SelectedDate="{Binding TransactionDetails.SaleDate,UpdateSourceTrigger=PropertyChanged,ValidatesOnDataErrors=False}"
+                                    Margin="100,0,0,0"/>
+                        </DockPanel>
+                    </StackPanel>
+                    <StackPanel Grid.Row="2"
+                                VerticalAlignment="Bottom">
+                        <StackPanel.Resources>
+                            <Style TargetType="TextBox">
+                                <Setter Property="Margin"
+                                    Value="60,0,150,0"/>
+                                <Setter Property="VerticalContentAlignment"
+                                    Value="Center"/>
+                            </Style>
+                            <Style TargetType="DockPanel">
+                                <Setter Property="Margin" Value="0,15,0,0"/>
+                            </Style>
+                            <Style TargetType="Label">
+                                <Setter Property="Width" Value="100"/>
+                                <Setter Property="FontSize" Value="13"/>
+                            </Style>
+                        </StackPanel.Resources>
+                        <Border BorderBrush="Gray"
+                                BorderThickness="1"                               
+                                Margin="0,0,0,0"
+                                Height="105"
+                                >
+                            <StackPanel >
+                                <StackPanel.Resources>
+                                    <Style TargetType="TextBox">
+                                        <Setter Property="Width" Value="100"/>
+                                    </Style>
+                                    <Style TargetType="DockPanel">
+                                        <Setter Property="HorizontalAlignment" Value="Left"/>
+                                        <Setter Property="Margin" Value="18,5,0,0"/>
+                                    </Style>
+                                </StackPanel.Resources>
+                                <DockPanel >
+                                    <Label Content="Postage Cost"/>
+                                    <TextBox
+                                        Text="{Binding TransactionDetails.Postage,UpdateSourceTrigger=PropertyChanged,ValidatesOnDataErrors=False}"
+                                  HorizontalAlignment="Left"
+                                    Margin="100,0,0,0"
+                                        IsReadOnly="True"/>
+                                </DockPanel>
+                                <DockPanel >
+                                    <Label Content="Sale Amount"/>
+                                    <TextBox
+                                  HorizontalAlignment="Left"
+                                  Margin="100,0,0,0"
+                                  Text="{Binding TransactionDetails.Amount,UpdateSourceTrigger=PropertyChanged,ValidatesOnDataErrors=False}"  
+                                        IsReadOnly="True"/>
+                                </DockPanel>
+                                <DockPanel >
+                                    <Label Content="Paypal Cost"/>
+                                    <TextBox
+                                  HorizontalAlignment="Left"
+                                        IsReadOnly="True"
+                                    Margin="100,0,0,0"
+                                        Text="{Binding TransactionDetails.PayPalFees,UpdateSourceTrigger=PropertyChanged,ValidatesOnDataErrors=False}"/>
+                                </DockPanel>
+                            </StackPanel>
+
+                        </Border>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal"
+                                HorizontalAlignment="Center"
+                                Grid.Row="3">
+                        <TextBlock FontSize="14"
+                                   VerticalAlignment="Bottom">
+                            <Bold>Stock List</Bold>
+                        </TextBlock>
+
+                    </StackPanel>
+                    <Expander Grid.Row="4"
+                              IsExpanded="True">
+                                <ListView ItemsSource="{Binding StockSaleList}">
+                                    <ListView.View>
+                                        <GridView>
+                                            <GridViewColumn Width="100" DisplayMemberBinding="{Binding Stockid}">
+                                                <TextBlock Text="Stock ID" MinWidth="100" />
+                                            </GridViewColumn>
+                                            <GridViewColumn Width="150" DisplayMemberBinding="{Binding Name}">
+                                                <TextBlock Text="Title" MinWidth="150" />
+                                            </GridViewColumn>
+                                            <GridViewColumn Width="200" DisplayMemberBinding="{Binding Description}">
+                                                <TextBlock Text="Description" MinWidth="200" />
+                                            </GridViewColumn>
+                                            <GridViewColumn Width="100" DisplayMemberBinding="{Binding purchasedvalue}">
+                                                <TextBlock Text="Purchased Value" MinWidth="100" />
+                                            </GridViewColumn>
+                                        </GridView>
+                                    </ListView.View>
+                                </ListView>
+                            </Expander>
+                </Grid>
+            </TabItem>
+        </TabControl>
+    </Grid>
+
+</UserControl>

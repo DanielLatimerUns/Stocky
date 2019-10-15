@@ -1,0 +1,98 @@
+﻿<UserControl x:Class="Stocky.Views.AppConfigurationView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Stocky.Views"
+             xmlns:VM="clr-namespace:Stocky.ViewModels"
+             xmlns:APP="clr-namespace:Stocky.Application"
+             mc:Ignorable="d" 
+             >
+
+    <UserControl.DataContext>
+        <VM:AppConfigurationViewModel/>
+    </UserControl.DataContext>
+    <UserControl.Resources>
+        <APP:ApplicationSettings x:Key="ApplicationSettings"/>
+        <Style TargetType="TextBox">
+            <Setter Property="Margin"
+                                    Value="60,0,150,0"/>
+            <Setter Property="VerticalContentAlignment"
+                                    Value="Center"/>
+            <Setter Property="Width"
+                                        Value="400"/>
+        </Style>
+        <Style TargetType="DockPanel">
+            <Setter Property="Margin" Value="0,40,0,0"/>
+        </Style>
+        <Style TargetType="Label">
+            <Setter Property="Width" Value="200"/>
+            <Setter Property="FontSize" Value="13"/>
+        </Style>
+    </UserControl.Resources>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <ToolBar Background="AliceBlue"
+                 >
+            <ToolBar.Resources>
+                <Style TargetType="Button">
+                    <Setter Property="Margin" Value="20,0,2,0"/>
+                </Style>
+            </ToolBar.Resources>
+            <Button Content="Save" Command="{Binding Source={StaticResource ApplicationSettings},Path=Save}"/>
+            <Button Content="Close" Command="{Binding UiCommands.CloseCurrentTab}"/>
+            <Separator Margin="20,0,20,0"/>
+        </ToolBar>
+        <TabControl Name="MainTabCon" TabStripPlacement="Left"
+                    BorderBrush="LightGray"
+                    Grid.Row="1">
+            <TabControl.Resources>
+                <Style TargetType="TabItem">
+                    <Setter Property="Height" Value="50"/>
+                    <Setter Property="Background" Value="LightBlue"/>
+                </Style>
+            </TabControl.Resources>
+            <TabItem Header="General" Margin="0,0,-2,0">
+                <Grid>
+                    <StackPanel Margin="10,10,0,0" Grid.ColumnSpan="2"
+                            >
+                        
+                        <TextBlock Text="General Global Settings"/>
+                        <DockPanel>
+                            <Label Content="Photo Storage UNC path"/>
+                            <TextBox Text="{Binding Source={StaticResource ApplicationSettings},Path=ImageDirectory}"/>
+                        </DockPanel>
+                        <DockPanel>
+                            <Label Content="Export Directory"/>
+                            <TextBox Text="{Binding Source={StaticResource ApplicationSettings},Path=ExportDirectory}"/>
+                        </DockPanel>
+                    </StackPanel>
+                </Grid>
+            </TabItem>
+            <TabItem Header="SSRS" Margin="0,0,-2,0">
+                <Grid>
+                    <StackPanel Margin="10,10,0,0" Grid.ColumnSpan="2"
+                            >
+                        <TextBlock Text="SSRS report server Settings"/>
+                        <DockPanel>
+                            <Label Content=" Base Server URL"/>
+                            <TextBox Text="{Binding Source={StaticResource ApplicationSettings},Path=SSRSServer, UpdateSourceTrigger=PropertyChanged}"/>
+                        </DockPanel>
+                        <DockPanel>
+                            <Label Content="SSRS database server name"/>
+                            <TextBox Text="{}"/>
+                        </DockPanel>
+                        <DockPanel>
+                            <Label Content="SSRS database name"/>
+                            <TextBox Text="{}"/>
+                        </DockPanel>
+                    </StackPanel>
+                </Grid>
+            </TabItem>
+           
+        </TabControl>
+    </Grid>
+</UserControl>
